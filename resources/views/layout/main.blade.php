@@ -5,7 +5,7 @@
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:20 GMT -->
 
 <head>
-
+hello
     <meta charset="utf-8" />
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,6 @@
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
 
      <!-- DataTables -->
      <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
