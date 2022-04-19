@@ -47,16 +47,15 @@
      <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet"
          type="text/css" />
 
+    <link href="{{URL('/')}}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{URL('/')}}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-
         <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
@@ -462,6 +461,12 @@
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/Job_Title" key="t-default">Job Title</a></li>
+                                <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
+                                <li><a href="/leave" key="t-crypto">Leave</a></li>
+                                <li><a href="/letter" key="t-blog">Letter</a></li>
+                            </ul>
+                        </li>
                                 <li><a href="index.html" key="t-default">Default</a></li>
                                 <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
                                 <li><a href="dashboard-crypto.html" key="t-crypto">Crypto</a></li>
@@ -540,7 +545,7 @@
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
-            @yield('content')
+        @yield('content')
         <!-- end main content-->
 
     </div>
@@ -607,6 +612,38 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
+    <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
+    <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
+
+    <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/libs/spectrum-colorpicker2/spectrum.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+    <script src="{{asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> -->
+
+    <!-- Sweet Alerts js -->
+    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    
+    <!-- Sweet alert init js-->
+    <script src="assets/js/pages/sweet-alerts.init.js"></script>
+    
+
+    <!-- form advanced init -->
+    <script src="assets/js/pages/form-advanced.init.js"></script>
+    
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    
+    <!-- dashboard init -->
+    <script src="assets/js/pages/dashboard.init.js"></script>
+    
+    <!-- App js -->
     <script src="assets/libs/jquery/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/metismenu/metisMenu.min.js"></script>
@@ -647,9 +684,8 @@
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> --}}
 
     <script src="assets/js/app.js"></script>
+    
 </body>
-
-
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:57 GMT -->
 
 </html>
