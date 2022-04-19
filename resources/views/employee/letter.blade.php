@@ -35,8 +35,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
+                                    <label for="basicpill-firstname-input">UserID *</label>
                                         <div class="input-group" id="datepicker2">
-                                            <input type="hidden" name="UserID" autocomplete="off" class="form-control" data-date-autoclose="true">
+                                            <input type="number" name="UserID" autocomplete="off" class="form-control" data-date-autoclose="true">
                                         </div>
                                         <span style="color: red">@error('UserID'){{ $message }} @enderror </span>
                                     </div>
@@ -143,7 +144,7 @@
 <script type="text/javascript">
     function delete_confirm2(url, LetterID) {
         console.log(LetterID);
-        url = '{{URL::TO(' / ')}}' + /delete_letter/ + LetterID;
+        url = '{{URL::TO('/')}}' + /delete_letter/ + LetterID;
         jQuery('#staticBackdrop').modal('show', {
             backdrop: 'static'
         });

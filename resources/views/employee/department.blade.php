@@ -86,7 +86,7 @@
                                                 {{ $value->DepartmentName  }}
                                             </td>
                                             <td class="col-md-1">
-                                                <a href="#"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                                <a href="/editdepartment/ {{ $value->DepartmentID  }}"><i class="bx bx-pencil align-middle me-1"></i></a>
                                                 <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('deleteletter','{{ $value->DepartmentID }}')"></i>
                                             </td>
                                         </tr>

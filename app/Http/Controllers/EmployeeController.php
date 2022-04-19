@@ -34,15 +34,15 @@ class EmployeeController extends Controller
     }
     function editdepartment($DepratmentID)
     {
-        $depratment = DB::select('select * from department where DepratmentID = ?',[$DepratmentID]);
+        $department = DB::select('select * from department where DepartmentID = ?',[$DepratmentID]);
       
-        return view('employee/department',['depratment'=> $depratment]);
+        return view('employee/editdepartment', compact('department'));
     }
      function updatedepartment(Request $request)
     {
 
         $DepartmentID = $request->DepartmentID;
-        $DepartmentName = $request->DepartmentName;
+        $DepartmentName = $request->departmentname;
 
         DB::update('update department set DepartmentName = ? where DepartmentID = ?',[$DepartmentName,$DepartmentID]);
         return redirect('departments');
@@ -73,18 +73,18 @@ class EmployeeController extends Controller
     }
     function editeducationlevel($EducationLevelID)
     {
-        $depratment = DB::select('select * from educationlevel where DepratmentID = ?',[$EducationLevelID]);
+        $educationlevel = DB::select('select * from educationlevel where EducationLevelID = ?',[$EducationLevelID]);
       
-        return view('employee/department',['depratment'=> $depratment]);
+        return view('employee/edit_educationlevel',['educationlevel'=> $educationlevel]);
     }
      function updateeducationlevel(Request $request)
     {
 
-        $DepartmentID = $request->DepartmentID;
-        $DepartmentName = $request->departmentname;
+        $EducationLevelID = $request->EducationLevelID;
+        $EducationLevelName = $request->EducationLevelName;
 
-        DB::update('update department set DepartmentName = ? where DepartmentID = ?',[$DepartmentName,$DepartmentID]);
-        return redirect('departments');
+        DB::update('update educationlevel set EducationLevelName = ? where EducationLevelID = ?',[ $EducationLevelName, $EducationLevelID]);
+        return redirect('educationlevels');
     }
     
     function documents()
@@ -127,6 +127,7 @@ class EmployeeController extends Controller
     function stafftype()
     {
         $stafftype = DB::table('staff_type')->get();
+        // dd($stafftype);
         return view('employee.stafftype', compact('stafftype'));
     }
 
@@ -146,6 +147,24 @@ class EmployeeController extends Controller
         DB::delete('delete from staff_type where StaffTypeID = ?', [$StaffTypeID]);
         return redirect()->back();
     }
+
+    function editstafftype($StaffTypeID)
+    {
+        $staff = DB::select('select * from staff_type where StaffTypeID = ?',[$StaffTypeID]);
+      
+        return view('employee/edit_staff', compact('staff'));
+    }
+
+    function updatestafftype(Request $request)
+    {
+
+        $StaffTypeID = $request->StaffTypeID;
+        $StaffType = $request->StaffType;
+
+        DB::update('update staff_type set StaffType = ? where StaffTypeID = ?',[ $StaffType, $StaffTypeID]);
+        return redirect('stafftype');
+    }
+
     function title()
     {
         $titles = DB::table('title')->get();
@@ -168,7 +187,22 @@ class EmployeeController extends Controller
         DB::delete('delete from title where TitleID = ?', [$TitleID]);
         return redirect()->back();
     }
+    function edittitle($TitleID)
+    {
+        $title = DB::select('select * from title where TitleID = ?',[$TitleID]);
+      
+        return view('employee/edit_title', compact('title'));
+    }
 
+    function updatetitle(Request $request)
+    {
+
+        $TitleeID = $request->TitleID;
+        $Title = $request->Title;
+
+        DB::update('update title set Title = ? where TitleID = ?',[ $Title, $TitleeID]);
+        return redirect('title');
+    }
     function showemployees(Request $request)
     {
 

@@ -22,7 +22,7 @@ Route::get('/departments',[EmployeeController::class,'show_departments'])->name(
 Route::get('/deletedepartment/{DepartmentID}',[EmployeeController::class,'deletedepartment']);
 Route::post('/adddepartments',[EmployeeController::class,'add_department'])->name('adddepartments');
 Route::post('/updatedepartment',[EmployeeController::class,'updatedepartment'])->name('updatedepartment');
-Route::get('/editdepartment/{DepartmentID}',[EmployeeController::class,'editpartment']);
+Route::get('/editdepartment/{DepartmentID}',[EmployeeController::class,'editdepartment']);
 //educationlevels
 Route::get('/educationlevels',[EmployeeController::class,'educationlevels'])->name('educationlevels');
 Route::post('/addeducationlevels',[EmployeeController::class,'add_educationlevels'])->name('addeducationlevels');
@@ -37,13 +37,14 @@ Route::post('/uploaddocument',[EmployeeController::class,'add_documents'])->name
 Route::get('/stafftype',[EmployeeController::class,'stafftype'])->name('stafftype');
 Route::post('/addstafftype',[EmployeeController::class,'addstafftype'])->name('addstafftype');
 Route::get('/deletestafftype/{StaffTypeID}',[EmployeeController::class,'deletestafftype']);
-Route::post('/updateeducationlevel',[EmployeeController::class,'updateeducationlevel'])->name('updateeducationlevel');
-Route::get('/editeducationlevel/{StaffTypeID}',[EmployeeController::class,'editeducationlevel']);
+Route::post('/updatestafftype',[EmployeeController::class,'updatestafftype'])->name('updatestafftype');
+Route::get('/editstafftype/{StaffTypeID}',[EmployeeController::class,'editstafftype']);
 //Title
 Route::get('/title',[EmployeeController::class,'title'])->name('title');
 Route::post('/addtitle',[EmployeeController::class,'addtitle'])->name('addtitle');
 Route::get('/deletetitle/{TitleID}',[EmployeeController::class,'deletetitle']);
-
+Route::post('/updatetitle',[EmployeeController::class,'updatetitle'])->name('updatetitle');
+Route::get('/edittitle/{TitleID}',[EmployeeController::class,'edittitle']);
 //employee
 Route::get('/employee',[EmployeeController::class,'showemployees'])->name('showemployee');
 Route::get('/employeeform',[EmployeeController::class,'employeeform'])->name('employeeform');

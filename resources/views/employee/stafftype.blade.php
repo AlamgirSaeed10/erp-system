@@ -85,8 +85,8 @@
                                             {{ $value->StaffType }}
                                         </td>
                                         <td class="col-md-1">
-                                            <a href=""><i class="bx bx-pencil align-middle me-1"></i></a>
-                                            <a href="deletestafftype/{{ $value->StaffTypeID }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a>
+                                            <a href="/editstafftype/{{ $value->StaffTypeID }}"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                            <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('deletestafftype','{{$value->StaffTypeID}}')"></i>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -144,20 +144,14 @@
         </div>
 
 
-        <script>
-            function deletestafftype(url, id) {
-
-
-
-                url = '{{ URL::TO('/') }}/' + 'deletestafftype' + '/' + id;
-
-
-
-                jQuery('#staticBackdrop').modal('show', {
-                    backdrop: 'static'
-                });
-                document.getElementById('delete_link').setAttribute('href', url);
-
-            }
-        </script>
+    <script type="text/javascript">
+    function delete_confirm2(url, StaffTypeID) {
+        console.log(StaffTypeID);
+        url = '{{URL::TO('/')}}' + /deletestafftype/ + StaffTypeID;
+        jQuery('#staticBackdrop').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', url);
+    }
+</script>
     @endsection
