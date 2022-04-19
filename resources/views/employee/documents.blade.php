@@ -36,7 +36,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="mb-3">
+                                           
                                                 <div class="mb-3">
                                                     <label class="form-label">Select Employee</label>
                                                     <select class="form-control select2" name="employee" required>
@@ -47,7 +47,7 @@
                                                         
                                                     </select>
                                                     <span style="color: red">@error('employee'){{ $message }} @enderror </span>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +87,7 @@
                 </div>
 
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -102,7 +102,7 @@
                                                 <th class="align-middle">Education Level</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody> --}}
 
                                         {{-- @foreach ($educationlevels as $educationlevel => $value)
                                             <tr>
