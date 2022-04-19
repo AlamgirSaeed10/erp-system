@@ -32,7 +32,21 @@ class EmployeeController extends Controller
         DB::delete('delete from department where DepartmentID = ?', [$DepartmentID]);
         return redirect()->back();
     }
+    function editdepartment($DepratmentID)
+    {
+        $depratment = DB::select('select * from department where DepratmentID = ?',[$DepratmentID]);
+      
+        return view('employee/department',['depratment'=> $depratment]);
+    }
+     function updatedepartment(Request $request)
+    {
 
+        $DepartmentID = $request->DepartmentID;
+        $DepartmentName = $request->DepartmentName;
+
+        DB::update('update department set DepartmentName = ? where DepartmentID = ?',[$DepartmentName,$DepartmentID]);
+        return redirect('departments');
+    }
 
     function educationlevels()
     {
@@ -57,7 +71,22 @@ class EmployeeController extends Controller
         DB::delete('delete from educationlevel where EducationLevelID = ?', [$EducationLevelID]);
         return redirect()->back();
     }
+    function editeducationlevel($EducationLevelID)
+    {
+        $depratment = DB::select('select * from educationlevel where DepratmentID = ?',[$EducationLevelID]);
+      
+        return view('employee/department',['depratment'=> $depratment]);
+    }
+     function updateeducationlevel(Request $request)
+    {
 
+        $DepartmentID = $request->DepartmentID;
+        $DepartmentName = $request->departmentname;
+
+        DB::update('update department set DepartmentName = ? where DepartmentID = ?',[$DepartmentName,$DepartmentID]);
+        return redirect('departments');
+    }
+    
     function documents()
     {
         $documents = DB::table('documents')->get();
