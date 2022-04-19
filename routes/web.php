@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,14 @@ Route::post('/addemployee',[EmployeeController::class,'addemployee'])->name('add
 Route::get('/editemployee/{EmployeeID}',[EmployeeController::class,'editemployee']);
 Route::post('/updateemployee',[EmployeeController::class,'updateemployee'])->name('updateemployee');
 Route::get('/deleteemployee/{EmployeeID}',[EmployeeController::class,'deletemployee']);
+
+
+
+Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
+Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
+Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
+Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('auth.employ_dashboard');
+Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', function () {
     return view('check');
