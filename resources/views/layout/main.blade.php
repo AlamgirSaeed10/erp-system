@@ -466,12 +466,7 @@
                                 <li><a href="/leave" key="t-crypto">Leave</a></li>
                                 <li><a href="/letter" key="t-blog">Letter</a></li>
                             </ul>
-                        </li>
-                                <li><a href="index.html" key="t-default">Default</a></li>
-                                <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
-                                <li><a href="dashboard-crypto.html" key="t-crypto">Crypto</a></li>
-                                <li><a href="dashboard-blog.html" key="t-blog">Blog</a></li>
-                            </ul>
+                        
                         </li>
 
 
