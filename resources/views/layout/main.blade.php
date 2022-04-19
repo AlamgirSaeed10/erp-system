@@ -5,7 +5,7 @@
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:20 GMT -->
 
 <head>
-hello
+
     <meta charset="utf-8" />
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +29,7 @@ hello
     <link href="{{ asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.css') }}">
+    
  
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -49,6 +50,8 @@ hello
     <link href="{{URL('/')}}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="{{URL('/')}}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
 </head>
 
 <body data-sidebar="dark">
@@ -465,12 +468,7 @@ hello
                                 <li><a href="/leave" key="t-crypto">Leave</a></li>
                                 <li><a href="/letter" key="t-blog">Letter</a></li>
                             </ul>
-                        </li>
-                                <li><a href="index.html" key="t-default">Default</a></li>
-                                <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
-                                <li><a href="dashboard-crypto.html" key="t-crypto">Crypto</a></li>
-                                <li><a href="dashboard-blog.html" key="t-blog">Blog</a></li>
-                            </ul>
+                       
                         </li>
 
 
@@ -516,22 +514,8 @@ hello
                                     <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
                                     <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
                                 </li>
-
-                             
                             </ul>
                         </li>
-
-                       
-
-
-
-                     
-
-                       
-
-                      
-
-                      
                     </ul>
                 </div>
                 <!-- Sidebar -->

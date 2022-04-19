@@ -5,6 +5,7 @@
 
 @section('content')
 
+
 <div class="main-content">
 
     <div class="page-content">
@@ -34,66 +35,64 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <!-- <label for="basicpill-firstname-input">User Id *</label> -->
                                         <div class="input-group" id="datepicker2">
                                             <input type="hidden" name="UserID" autocomplete="off" class="form-control" data-date-autoclose="true">
                                         </div>
                                         <span style="color: red">@error('UserID'){{ $message }} @enderror </span>
                                     </div>
                                 </div>
-                            </div>    
-                                <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="col-md-12">
-                                        <label for="basicpill-firstname-input">Add Content *</label>
-                                        <div class="col-md-12">
-                                            <textarea name="Content"></textarea>
-                                        </div>
+                                        <textarea name="Content"></textarea>
                                     </div>
-                                </div><br>
-                                <div>
-                                    <button type="submit" class="btn btn-success w-lg float-right">Submit</button>
                                 </div>
+                            </div><br>
+                            <div>
+                                <button type="submit" class="btn btn-success w-lg float-right">Submit</button>
+                            </div>
                         </form>
                     </div>
                     <!-- end card body -->
                 </div>
-                
+
                 <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4">List of Letters</h4>
-                            <div class="table-responsive">
-                                <table class="table align-middle table-nowrap mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="col">S.No</th>
-                                            <th scope="col">Title </th>
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">List of Letters</h4>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Title </th>
 
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        @foreach($letters  as $letter)
-                                        <tr>
-                                            <td class="col-md-1">{{$i}}.</td>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @foreach($letters as $letter)
+                                    <tr>
+                                        <td class="col-md-1">{{$i}}.</td>
 
-                                            <td class="col-md-10">
-                                                {{ $letter->Title }}
-                                            </td>
-                                            <td class="col-md-1">
-                                                <a href="edit_letter/{{$letter->LetterID }}"><i class="bx bx-pencil align-middle me-1"></i></a> 
-                                                <!-- <a href="delete_letter/{{ $letter->LetterID  }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a> -->
-                                              <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('letter_delete','{{$letter->LetterID}}')"></i>
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <td class="col-md-10">
+                                            {{ $letter->Title }}
+                                        </td>
+                                        <td class="col-md-1">
+                                            <a href="edit_letter/{{$letter->LetterID }}"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                            <!-- <a href="delete_letter/{{ $letter->LetterID  }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a> -->
+                                            <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('letter_delete','{{$letter->LetterID}}')"></i>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- end card body -->
                     </div>
+                    <!-- end card body -->
+                </div>
 
             </div>
         </div>
@@ -140,17 +139,20 @@
         </div>
     </footer>
 </div>
+
+<script type="text/javascript">
+    function delete_confirm2(url, LetterID) {
+        console.log(LetterID);
+        url = '{{URL::TO(' / ')}}' + /delete_letter/ + LetterID;
+        jQuery('#staticBackdrop').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', url);
+    }
+</script>
 <script>
     CKEDITOR.replace('Content', {
         height: 350,
     });
-</script>
-<script type="text/javascript">
-       function delete_confirm2(url,LetterID) {
-           console.log(LetterID);
-            url = '{{URL::TO('/')}}'+/delete_letter/+LetterID;
-            jQuery('#staticBackdrop').modal('show', {backdrop: 'static'});
-            document.getElementById('delete_link').setAttribute('href' , url);
-        }
 </script>
 @endsection
