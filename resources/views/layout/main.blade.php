@@ -511,7 +511,7 @@
                                 <li>
                                     <li><a href="{{ route('departments') }}" key="t-light-sidebar">Departments</a></li>
                                     <li><a href="{{ route('educationlevels') }}" key="t-compact-sidebar">Education Levels</a></li>
-                                    <li><a href="l{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
+                                    {{-- <li><a href="{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li> --}}
                                     <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
                                     <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
                                     <li><a href="/Job_Title" key="t-default">Job Title</a></li>

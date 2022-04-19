@@ -441,4 +441,92 @@ class EmployeeController extends Controller
             return redirect()->back();
         }
     }
+    function editemployee($EmployeeID)
+    {
+        $educationlevel = DB::table('educationlevel')->get();
+        $department = DB::table('department')->get();
+        $stafftype = DB::table('staff_type')->get();
+        $title = DB::table('title')->get();
+        $jobtitle = DB::table('jobtitle')->get();
+
+        $employee=  DB::table('employee')->where('EmployeeID' , $EmployeeID)->get();
+       
+        return view('employee.editemployee' , compact('employee','educationlevel', 'department' , 'stafftype' , 'title' , 'jobtitle'));
+    }
+
+    function updateemployee(Request $request)
+    {
+        
+        if ($request->hasFile('newpicture'))
+        {
+            $file = $request->file('newpicture') ;
+            $fileName = $file->getClientOriginalName() ;
+            $destinationPath = public_path().'/employee_pictures';
+            $storage= $file->move($destinationPath,$fileName);
+
+          
+            
+           
+        
+        }
+        else
+        {
+            $fileName=$request->oldpicture;
+        }
+
+        $data = array (
+        'IsSupervisor'=> $request->IsSupervisor,    
+        'Title'=> $request->Title,
+        'StaffType'=> $request->StaffType,
+        'FirstName'=> $request->FirstName,
+        'MiddleName'=> $request->MiddleName,
+        'LastName'=> $request->LastName,
+        'DateOfBirth'=> $request->DateOfBirth,
+        'Gender'=> $request->Gender,
+        'Email'=> $request->Email,
+        'Nationality'=> $request->Nationality,
+        'Nationality'=> $request->MobileNo,
+        'MobileNo'=> $request->HomePhone,
+        'FullAddress'=> $request->FullAddress,
+        'EducationLevel'=> $request->EducationLevel,
+        'LastDegree'=> $request->LastDegree,
+        'MaritalStatus'=> $request->MaritalStatus,
+        'SpouseName'=> $request->SpouseName,
+        'SpouseEmployer'=> $request->SpouseEmployer,
+        'SpouseWorkPhone'=> $request->SpouseWorkPhone,
+        'VisaIssueDate'=> $request->VisaIssueDate,
+        'SpouseEmployer'=> $request->SpouseEmployer,
+        'VisaExpiryDate'=> $request->VisaExpiryDate,
+        'PassportNo'=> $request->PassportNo,
+        'PassportExpiry'=> $request->PassportExpiry,
+        'NextofKinName'=> $request->NextofKinName,
+        'NextofKinAddress'=> $request->NextofKinAddress,
+        'NextofKinPhone'=> $request->NextofKinPhone,
+        'NextofKinRelationship'=> $request->NextofKinRelationship,
+        'JobTitleID'=> $request->JobTitleID,
+        'DepartmentID'=> $request->DepartmentID,
+        'SupervisorID'=> $request->SupervisorID,
+        'WorkLocation'=> $request->WorkLocation,
+        'EmailOffical'=> $request->EmailOffical,
+        'WorkLocation'=> $request->WorkLocation,
+        'WorkPhone'=> $request->WorkPhone,
+        'eDate'=> $request->StartDate,
+        'Picture'=> $fileName ,
+        'Password'=> $request->Password,
+
+        );
+        
+       
+
+        $id = DB::table('employee')->where('EmployeeID', $request->EmployeeID)->update($data);
+        
+   
+        return view('employee.employee');
+    }
+
+    function deletemployee($EmployeeID)
+    {
+        DB::delete('delete from employee where EmployeeID = ?',[$EmployeeID]);
+        return redirect()->back();
+    }
 }
