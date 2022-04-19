@@ -12,25 +12,40 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{URL('/')}}/assets/images/favicon.ico">
-    
-    <link href="{{URL('/')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{URL('/')}}/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
-    <link href="{{URL('/')}}/assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
-    <link href="{{URL('/')}}/assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
-    <link href="{{URL('/')}}/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="assets/libs/%40chenfengyuan/datepicker/datepicker.min.css">
-    <link href="{{URL('/')}}/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-
-
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+ 
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
+   
+    <link href="{{ asset('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }} " rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libs/spectrum-colorpicker2/spectrum.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.css') }}">
+ 
     <!-- Bootstrap Css -->
-    <link href="{{URL('/')}}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{URL('/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{URL('/')}}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+
+     <!-- DataTables -->
+     <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+         type="text/css" />
+
+    <!-- Responsive datatable examples -->  
+     <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet"
+         type="text/css" />
 
     <link href="{{URL('/')}}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="{{URL('/')}}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -452,6 +467,72 @@
                                 <li><a href="/letter" key="t-blog">Letter</a></li>
                             </ul>
                         </li>
+                                <li><a href="index.html" key="t-default">Default</a></li>
+                                <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
+                                <li><a href="dashboard-crypto.html" key="t-crypto">Crypto</a></li>
+                                <li><a href="dashboard-blog.html" key="t-blog">Blog</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect">
+                                <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">02</span>
+                                <span key="t-dashboards">Employee</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('employeeform') }}" key="t-default">Add Employee</a></li>
+                                <li><a href="{{ route('showemployee') }}" key="t-saas">All Employees</a></li>
+                              
+                            </ul>
+                        </li>
+                        {{-- <li>
+                            <a href="{{ route('departments') }}" class="waves-effect">
+                                <i class="bx bx-chat"></i>
+                                <span key="t-chat">Departments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('educationlevels') }}" class="waves-effect">
+                                <i class="bx bx-chat"></i>
+                                <span key="t-chat">Education Levels</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('documents') }}" class="waves-effect">
+                                <i class="bx bx-chat"></i>
+                                <span key="t-chat">Documents</span>
+                            </a>
+                        </li> --}}
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-layout"></i>
+                                <span key="t-layouts">Other</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li>
+                                    <li><a href="{{ route('departments') }}" key="t-light-sidebar">Departments</a></li>
+                                    <li><a href="{{ route('educationlevels') }}" key="t-compact-sidebar">Education Levels</a></li>
+                                    <li><a href="l{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
+                                    <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
+                                    <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
+                                </li>
+
+                             
+                            </ul>
+                        </li>
+
+                       
+
+
+
+                     
+
+                       
+
+                      
+
+                      
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -563,6 +644,45 @@
     <script src="assets/js/pages/dashboard.init.js"></script>
     
     <!-- App js -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    
+    <script src="assets/libs/select2/js/select2.min.js"></script>
+    <script src="assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+    <script src="assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <script src="assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
+
+    <!-- form advanced init -->
+    <script src="assets/js/pages/form-advanced.init.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="assets/libs/jszip/jszip.min.js"></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js"></script>
+
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> --}}
+
     <script src="assets/js/app.js"></script>
     
 </body>
