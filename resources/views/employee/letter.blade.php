@@ -44,7 +44,7 @@
                             </div>    
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="basicpill-firstname-input">Add Content *</label>
+                                     
                                         <div class="col-md-12">
                                             <textarea name="Content"></textarea>
                                         </div>

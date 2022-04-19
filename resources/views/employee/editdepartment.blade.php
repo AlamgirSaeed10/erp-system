@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Home')
+@section('title', 'Department')
 
 
 @section('content')
@@ -14,20 +14,20 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">Leave Status</h4>
+                        <h4 class="mb-sm-0 font-size-18"> Edit Department</h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-4"></h4>
-                        <form action="/updatestatus/<?php echo $leave_status[0]->LeaveStatusID; ?>" method="POST">
+                        <form action="{{ route('updatedepartment') }}" method="POST">
                             {{csrf_field()}}
-                            <input type="hidden" class="form-control" name="LeaveStatusID" value="<?php echo $leave_status[0]->LeaveStatusID; ?>">
+                            <input type="hidden" class="form-control" name="DepartmentID" value="{{ $department->DepartmentID }}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="basicpill-firstname-input">Leave Status *</label>
-                                        <input type="text" class="form-control" name="LeaveStatus" value='<?php echo $leave_status[0]->LeaveStatus; ?>'>
+                                        <label for="basicpill-firstname-input">Department*</label>
+                                        <input type="text" class="form-control" name="departmentname" value='{{$department->DepartmentName }}'>
                                     </div>
                                 </div>
                                 <div><button type="submit" class="btn btn-success w-lg float-right">Update</button>
