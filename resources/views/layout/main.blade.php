@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.css') }}">
     
  
+   
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -513,6 +514,10 @@
                                     <li><a href="l{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
                                     <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
                                     <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
+                                    <li><a href="/Job_Title" key="t-default">Job Title</a></li>
+                                    <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
+                                    <li><a href="/leave" key="t-crypto">Leave</a></li>
+                                    <li><a href="/letter" key="t-blog">Letter</a></li>
                                 </li>
                             </ul>
                         </li>
@@ -595,6 +600,15 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
+
+
+
+
+
+
+
+
+
     <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
@@ -668,6 +682,8 @@
 
     <script src="assets/js/app.js"></script>
     
+
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js%22%3E"></script>
 </body>
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:57 GMT -->
 

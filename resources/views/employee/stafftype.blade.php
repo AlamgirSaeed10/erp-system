@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                  
+
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
@@ -119,5 +119,45 @@
                 </div>
             </footer>
         </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center">Are you sure to delete this information ?</p>
+                        <p class="text-center">
 
+
+
+                            <a href="#" class="btn btn-danger " id="delete_link">Delete</a>
+                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            function deletestafftype(url, id) {
+
+
+
+                url = '{{ URL::TO('/') }}/' + 'deletestafftype' + '/' + id;
+
+
+
+                jQuery('#staticBackdrop').modal('show', {
+                    backdrop: 'static'
+                });
+                document.getElementById('delete_link').setAttribute('href', url);
+
+            }
+        </script>
     @endsection
