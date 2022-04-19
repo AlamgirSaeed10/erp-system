@@ -22,7 +22,7 @@
                         <h4 class="card-title mb-4"></h4>
                         <form action="/updatestatus/<?php echo $leave_status[0]->LeaveStatusID; ?>" method="POST">
                             {{csrf_field()}}
-                            <input type="text" class="form-control" name="LeaveStatusID" value="<?php echo $leave_status[0]->LeaveStatusID; ?>">
+                            <input type="hidden" class="form-control" name="LeaveStatusID" value="<?php echo $leave_status[0]->LeaveStatusID; ?>">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-3">
