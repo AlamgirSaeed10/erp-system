@@ -150,21 +150,21 @@ class EmployeeController extends Controller
             ->select('employee.EmployeeID','employee.Title','employee.FirstName','employee.MiddleName','employee.LastName', 'jobtitle.JobTitleName', 'department.DepartmentName')
             ->get();
             
-        //     return Datatables::of($data)
-        //             ->addIndexColumn()
-        //             ->addColumn('action', function($row){
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
      
-        //                    $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="#" class="btn btn-sm edit" title="Edit">
-        //                    <i class="fas fa-eye"></i>
-        //                </a>  <a href ="#" onclick="delete_employee(' . $row->EmployeeID . ')" class="btn  btn-sm edit waves-effect waves-light" title="Edit" id="sa-params">
-        //                <i class="fas fa-trash-alt"></i>
-        //            </a>';
+                           $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="#" class="btn btn-sm edit" title="Edit">
+                           <i class="fas fa-eye"></i>
+                       </a>  <a href ="#" onclick="delete_employee(' . $row->EmployeeID . ')" class="btn  btn-sm edit waves-effect waves-light" title="Edit" id="sa-params">
+                       <i class="fas fa-trash-alt"></i>
+                   </a>';
     
-        //                     return $btn;
-        //             })
-        //             ->rawColumns(['action'])
-        //             ->make(true);
-        // }
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
         
             return view('employee.employee');
     }
@@ -227,14 +227,8 @@ class EmployeeController extends Controller
         $data['eDate']=$request->StartDate;
         $data['Password']=$request->Password;
         
-    //    $data = array(
-           
-    //     'FirstName' => $request->FirstName, 
-    //     'LastNAme' => $request->LastNAme, 
-    //     'Age' => $request->Age, 
     
-    
-    //     );
+  
       
         if ($request->hasFile('Uploadpicture'))
         {
@@ -340,5 +334,4 @@ class EmployeeController extends Controller
         DB::delete('delete from employee where EmployeeID = ?',[$EmployeeID]);
         return redirect()->back();
     }
-}
 }

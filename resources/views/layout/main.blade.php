@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.css') }}">
- 
+   
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -460,19 +460,8 @@
                                 <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="/Job_Title" key="t-default">Job Title</a></li>
-                                <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
-                                <li><a href="/leave" key="t-crypto">Leave</a></li>
-                                <li><a href="/letter" key="t-blog">Letter</a></li>
-                            </ul>
-                        </li>
-                                <li><a href="index.html" key="t-default">Default</a></li>
-                                <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
-                                <li><a href="dashboard-crypto.html" key="t-crypto">Crypto</a></li>
-                                <li><a href="dashboard-blog.html" key="t-blog">Blog</a></li>
-                            </ul>
-                        </li>
+                           
+                      
 
 
                         <li>
@@ -516,6 +505,10 @@
                                     <li><a href="l{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
                                     <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
                                     <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
+                                    <li><a href="/Job_Title" key="t-default">Job Title</a></li>
+                                    <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
+                                    <li><a href="/leave" key="t-crypto">Leave</a></li>
+                                    <li><a href="/letter" key="t-blog">Letter</a></li>
                                 </li>
 
                              
@@ -612,6 +605,15 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
+
+
+
+
+
+
+
+
+
     <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
@@ -685,6 +687,8 @@
 
     <script src="assets/js/app.js"></script>
     
+
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js%22%3E"></script>
 </body>
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:57 GMT -->
 

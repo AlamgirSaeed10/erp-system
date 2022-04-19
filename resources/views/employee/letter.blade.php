@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Home')
+@section('title', 'Letter')
 
 
 @section('content')
@@ -140,12 +140,12 @@
         </div>
     </footer>
 </div>
-<script>
+<script type="text/javascript">
     CKEDITOR.replace('Content', {
         height: 350,
     });
-</script>
-<script type="text/javascript">
+
+
        function delete_confirm2(url,LetterID) {
            console.log(LetterID);
             url = '{{URL::TO('/')}}'+/delete_letter/+LetterID;
