@@ -33,17 +33,19 @@
 
                                 <form action="{{ route('addtitle') }}" method="post">
                                     @csrf
+                                <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="formrow-firstname-input" class="form-label">Title</label>
                                         <input type="text" class="form-control" name="title" id="formrow-firstname-input"
                                             placeholder="Enter title">
                                        <span style="color: red">@error('title'){{ $message }} @enderror </span>     
                                     </div>
+                                </div>
                                     <div class="mb-4">
 
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                        <button type="submit" class="btn btn-success w-md">Save</button>
                                     </div>
                                 </form>
                             </div>
@@ -71,6 +73,7 @@
                                         <tr>
                                             <th class="align-middle">#</th>
                                                 <th class="align-middle">Title</th>
+                                                <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -79,6 +82,11 @@
                                         <tr>
                                             <td>{{ $loop->index+1 }}</td>
                                             <td>{{ $value->Title }}</td>
+                                            <td><a href="#"  onclick="deletetitle('deletetitle','{{ $value->TitleID }}')"
+                                                class="btn  btn-sm edit waves-effect waves-light" title="Edit"
+                                                id="sa-params">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a></td>
                                         </tr>
                                     @endforeach
 
@@ -113,4 +121,46 @@
             </footer>
         </div>
 
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Are you sure to delete this information ?</p>
+                    <p class="text-center">
+
+
+
+                        <a href="#" class="btn btn-danger " id="delete_link">Delete</a>
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function deletetitle(url, id) {
+
+
+
+            url = '{{ URL::TO('/') }}/' + 'deletetitle' + '/' + id;
+
+
+
+            jQuery('#staticBackdrop').modal('show', {
+                backdrop: 'static'
+            });
+            document.getElementById('delete_link').setAttribute('href', url);
+
+        }
+    </script>
     @endsection
