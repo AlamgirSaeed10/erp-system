@@ -33,7 +33,7 @@
                             <form action="/updatejob/<?php echo $jobtitles[0]->JobTitleID; ?>" method="post">
 
                                 {{csrf_field()}}
-                                <input type="text" class="form-control" name="JobTitleID" value="<?php echo$jobtitles[0]->JobTitleID; ?>">
+                                <input type="hidden" class="form-control" name="JobTitleID" value="<?php echo$jobtitles[0]->JobTitleID; ?>">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="mb-3">

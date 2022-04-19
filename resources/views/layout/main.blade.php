@@ -29,6 +29,8 @@
     <link href="{{ asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.css') }}">
+    
+ 
    
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -36,7 +38,6 @@
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
 
      <!-- DataTables -->
      <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -50,6 +51,8 @@
     <link href="{{URL('/')}}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="{{URL('/')}}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
 </head>
 
 <body data-sidebar="dark">
@@ -460,8 +463,14 @@
                                 <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
-                           
-                      
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/Job_Title" key="t-default">Job Title</a></li>
+                                <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
+                                <li><a href="/leave" key="t-crypto">Leave</a></li>
+                                <li><a href="/letter" key="t-blog">Letter</a></li>
+                            </ul>
+                       
+                        </li>
 
 
                         <li>
@@ -510,22 +519,8 @@
                                     <li><a href="/leave" key="t-crypto">Leave</a></li>
                                     <li><a href="/letter" key="t-blog">Letter</a></li>
                                 </li>
-
-                             
                             </ul>
                         </li>
-
-                       
-
-
-
-                     
-
-                       
-
-                      
-
-                      
                     </ul>
                 </div>
                 <!-- Sidebar -->

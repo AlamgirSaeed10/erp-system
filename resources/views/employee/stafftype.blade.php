@@ -33,21 +33,19 @@
 
                                 <form action="{{ route('addstafftype') }}" method="post">
                                     @csrf
-                                    <div class="mb-3">
-                                        <label for="formrow-firstname-input" class="form-label">Staff Type</label>
-                                        <input type="text" class="form-control" name="stafftype"
-                                            id="formrow-firstname-input" placeholder="Enter Staff Type">
-                                        <span style="color: red">
-                                            @error('stafftype')
-                                                {{ $message }}
-                                            @enderror
-                                        </span>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="formrow-firstname-input" class="form-label">Staff Type</label>
+                                            <input type="text" class="form-control" name="stafftype" id="formrow-firstname-input"
+                                                placeholder="Enter Staff Type">
+                                        <span style="color: red">@error('stafftype'){{ $message }} @enderror </span>     
+                                        </div>
                                     </div>
                                     <div class="mb-4">
 
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                        <button type="submit" class="btn btn-success w-md">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -64,42 +62,41 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">List of Letters</h4>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Title </th>
 
-                                <h4 class="card-title">All Staff Types</h4>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @foreach($stafftype as $staff => $value)
+                                    <tr>
+                                        <td class="col-md-1">{{$i}}.</td>
 
-
-                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                    <thead>
-                                        <tr>
-                                            <th class="align-middle">#</th>
-                                            <th class="align-middle">Staff Type</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach ($stafftype as $staff => $value)
-                                            <tr>
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $value->StaffType }}</td>
-                                                <td><a href="#"  onclick="deletestafftype('deletestafftype','{{ $value->StaffTypeID }}')"
-                                                        class="btn  btn-sm edit waves-effect waves-light" title="Edit"
-                                                        id="sa-params">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a></td>
-                                            </tr>
-                                        @endforeach
-
-
-                                    </tbody>
-
-
-                                </table>
-
-                            </div>
+                                        <td class="col-md-10">
+                                            {{ $value->StaffType }}
+                                        </td>
+                                        <td class="col-md-1">
+                                            <a href=""><i class="bx bx-pencil align-middle me-1"></i></a>
+                                            <a href="deletestafftype/{{ $value->StaffTypeID }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                    <!-- end card body -->
+                </div>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
             </div>

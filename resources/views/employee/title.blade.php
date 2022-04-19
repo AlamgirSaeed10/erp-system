@@ -62,42 +62,41 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">TITLE</h4>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Title </th>
 
-                                <h4 class="card-title">All Staff Types</h4>
-                               
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @foreach($titles as $title => $value)
+                                    <tr>
+                                        <td class="col-md-1">{{$i}}.</td>
 
-                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                    <thead>
-                                        <tr>
-                                            <th class="align-middle">#</th>
-                                                <th class="align-middle">Title</th>
-                                                <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach ($titles as $title => $value)
-                                        <tr>
-                                            <td>{{ $loop->index+1 }}</td>
-                                            <td>{{ $value->Title }}</td>
-                                            <td><a href="#"  onclick="deletetitle('deletetitle','{{ $value->TitleID }}')"
-                                                class="btn  btn-sm edit waves-effect waves-light" title="Edit"
-                                                id="sa-params">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a></td>
-                                        </tr>
+                                        <td class="col-md-10">
+                                            {{ $value->Title }}
+                                        </td>
+                                        <td class="col-md-1">
+                                            <a href="#"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                            <a href="#"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
                                     @endforeach
-
-
-                                    </tbody>
-
-                                    
-                                </table>
-
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                    <!-- end card body -->
+                </div>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
             </div>
@@ -164,3 +163,9 @@
         }
     </script>
     @endsection
+    @foreach ($titles as $title => $value)
+                                        <tr>
+                                            <td>{{ $loop->index+1 }}</td>
+                                            <td>{{ $value->Title }}</td>
+                                        </tr>
+                                    @endforeach
