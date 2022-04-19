@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LoginController;
 
@@ -56,6 +55,5 @@ Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->n
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', function () {
-    return view('home');
+    return view('check');
 });
-
