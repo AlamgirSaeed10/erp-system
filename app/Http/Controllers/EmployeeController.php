@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DataTables;
-
+use App\Http\Controllers\Controller;
 class EmployeeController extends Controller
 {
     function show_departments()
