@@ -97,7 +97,7 @@ class WorkController extends Controller
         // dd($request);
         $LeaveStatus = $request->input('LeaveStatus');
         DB::update('update `leave_status` set LeaveStatus= ? where LeaveStatusID = ?',[$LeaveStatus,$LeaveStatusID]);
-        return redirect()->back();
+        // return redirect()->back();
         return redirect('Leave_Status');
     }
 
