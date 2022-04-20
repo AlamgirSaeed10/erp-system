@@ -513,6 +513,7 @@
                                     <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
                                     <li><a href="/leave" key="t-crypto">Leave</a></li>
                                     <li><a href="/letter" key="t-blog">Letter</a></li>
+                                    <li><a href="/Report" key="t-blog">Report</a></li>
                                 </li>
                             </ul>
                         </li>

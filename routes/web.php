@@ -92,3 +92,9 @@ Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
 
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::view('/customer', 'customer')->name('customer');
+
+Route::get('/Report',[WorkController::class,'report']);
+Route::post('/Report',[WorkController::class,'add_report'])->name('Report');
+Route::get('/edit_report/{id}',[WorkController::class,'edit_report']);
+Route::post('updatereport/{id}',[WorkController::class,'update_report']);
+Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
