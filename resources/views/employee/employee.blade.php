@@ -110,7 +110,9 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
+    
+    <script>
+    
         function delete_employee(id) {
 
 
@@ -158,6 +160,7 @@
             });
 
         });
+    
     </script>
-
 @endsection
+

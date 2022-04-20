@@ -58,7 +58,8 @@ Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_emplo
 Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
 Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
 Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
-Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('auth.employ_dashboard');
+Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
+// Route::get('/employ_dashboard', [LoginController::class, 'hr_dashboard'])->name('auth.hr_dashboard');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', function () {
@@ -98,3 +99,7 @@ Route::post('/Report',[WorkController::class,'add_report'])->name('Report');
 Route::get('/edit_report/{id}',[WorkController::class,'edit_report']);
 Route::post('updatereport/{id}',[WorkController::class,'update_report']);
 Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
+// employ section
+Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
+
+
