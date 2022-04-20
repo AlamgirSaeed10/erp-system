@@ -57,7 +57,7 @@
                                 <a href="index.html" class="auth-logo-dark">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="{{asset('assets/images/icon-hr.png')}}" alt="" class="rounded-circle" height="45">
+                                            <img src="{{asset('employee_pictures/20210828054934.png')}}" alt="" class="rounded-circle" height="45">
                                         </span>
                                     </div>
                                 </a>

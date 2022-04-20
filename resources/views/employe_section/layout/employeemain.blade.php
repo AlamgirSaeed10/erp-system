@@ -156,7 +156,6 @@
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="{{asset('employee_pictures')}}/{{Session::get('Picture')}}"
-                                
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{Session::get('FullName')}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -166,7 +165,7 @@
                                 <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
                                 <!-- <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a> -->
                                 <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a> -->
-                                <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="{{route('auth.logout')}}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                             </div>
@@ -179,6 +178,7 @@
             </header>
 
             <!-- ========== Left Sidebar Start ========== -->
+            <!-- ========== Left Sidebar Start ========== -->
             <div class="vertical-menu">
 
                 <div data-simplebar class="h-100">
@@ -190,62 +190,21 @@
                         <li class="menu-title" key="t-menu">Menu</li>
 
                         <li>
-                            <a href="{{route('dashboard')}}" class="waves-effect">
+                            <a href="{{route('employ_dashboard')}}" class="waves-effect">
                                 <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
                            
                         </li>
+                        <li>
+                            <a href="#" class="waves-effect">
+                                <i class="bx bx-file"></i><span class="badge rounded-pill bg-info float-end"></span>
+                                <span key="t-dashboards">Daily Report</span>
+                            </a>
+                           
+                        </li>
 
-
-                        <li>
-                            <a href="javascript: void(0);" class="waves-effect">
-                                <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
-                                <span key="t-dashboards">Employee</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('employeeform') }}" key="t-default">Add Employee</a></li>
-                                <li><a href="{{ route('showemployee') }}" key="t-saas">All Employees</a></li>
-                              
-                            </ul>
-                        </li>
-                        {{-- <li>
-                            <a href="{{ route('departments') }}" class="waves-effect">
-                                <i class="bx bx-chat"></i>
-                                <span key="t-chat">Departments</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('educationlevels') }}" class="waves-effect">
-                                <i class="bx bx-chat"></i>
-                                <span key="t-chat">Education Levels</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('documents') }}" class="waves-effect">
-                                <i class="bx bx-chat"></i>
-                                <span key="t-chat">Documents</span>
-                            </a>
-                        </li> --}}
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-layout"></i>
-                                <span key="t-layouts">Other</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li>
-                                    <li><a href="{{ route('departments') }}" key="t-light-sidebar">Departments</a></li>
-                                    <li><a href="{{ route('educationlevels') }}" key="t-compact-sidebar">Education Levels</a></li>
-                                    <li><a href="l{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
-                                    <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
-                                    <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
-                                    <li><a href="/Job_Title" key="t-default">Job Title</a></li>
-                                    <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
-                                    <li><a href="/leave" key="t-crypto">Leave</a></li>
-                                    <li><a href="/letter" key="t-blog">Letter</a></li>
-                                </li>
-                            </ul>
-                        </li>
+                     
                     </ul>
                 </div>
                     <!-- Sidebar -->
@@ -374,7 +333,7 @@
         <!-- App js -->
         <script src="{{asset('assets/js/app.js')}}"></script>
 
-        @yield('scripts')
+      
          <!-- Datatable init js -->
     </body>
 

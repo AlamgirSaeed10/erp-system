@@ -58,7 +58,8 @@ Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_emplo
 Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
 Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
 Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
-Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('auth.employ_dashboard');
+Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
+// Route::get('/employ_dashboard', [LoginController::class, 'hr_dashboard'])->name('auth.hr_dashboard');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', function () {
@@ -92,3 +93,8 @@ Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
 
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::view('/customer', 'customer')->name('customer');
+
+// employ section
+Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
+
+
