@@ -52,7 +52,7 @@ Route::post('/addemployee',[EmployeeController::class,'addemployee'])->name('add
 Route::get('/editemployee/{EmployeeID}',[EmployeeController::class,'editemployee']);
 Route::post('/updateemployee',[EmployeeController::class,'updateemployee'])->name('updateemployee');
 Route::get('/deleteemployee/{EmployeeID}',[EmployeeController::class,'deletemployee']);
-
+Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_employee']);
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('auth.login');

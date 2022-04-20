@@ -218,7 +218,7 @@ class EmployeeController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
      
-                           $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="#" class="btn btn-sm edit" title="Edit">
+                           $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="employeedetail/'.$row->EmployeeID.'"" class="btn btn-sm edit" title="Edit">
                            <i class="fas fa-eye"></i>
                        </a>  <a href ="#" onclick="delete_employee(' . $row->EmployeeID . ')" class="btn  btn-sm edit waves-effect waves-light" title="Edit" id="sa-params">
                        <i class="fas fa-trash-alt"></i>
@@ -528,5 +528,18 @@ class EmployeeController extends Controller
     {
         DB::delete('delete from employee where EmployeeID = ?',[$EmployeeID]);
         return redirect()->back();
+    }
+
+    function view_employee($EmployeeID)
+    {
+        $employee =DB::table('employee')
+        ->join('department', 'employee.DepartmentID', 'department.DepartmentID')
+        ->join('jobtitle', 'employee.JobTitleID', 'jobtitle.JobTitleID')
+       ->where('EmployeeID' , '=' , $EmployeeID)
+        ->get();
+        // dd($employee);
+        // $employee = DB::select('select * from employee where EmployeeID = ?',[$EmployeeID]);    
+        return view('employee/view_employ', compact('employee'));
+
     }
 }
