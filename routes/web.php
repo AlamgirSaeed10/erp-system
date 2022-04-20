@@ -84,3 +84,6 @@ Route::get('/edit_letter/{id}',[WorkController::class,'edit_letter']);
 Route::post('updateletter/{id}',[WorkController::class,'update_letter']);
 Route::get('/delete_letter/{id}',[WorkController::class,'destroy_letter']);
 Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
+
+Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::view('/customer', 'customer')->name('customer');

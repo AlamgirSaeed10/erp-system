@@ -83,7 +83,7 @@ class LoginController extends Controller
                 Session::put('StaffType', $data[0]->StaffType);
                 Session::put('BranchID', $data[0]->DepartmentID);
                 Session::put('LoggedUser');
-                return redirect('employ_dashboard');
+                return redirect('customer');
             } else {
                 return redirect('/login')->withinput($request->all())->with('error', 'Invalid username or Password. Try again');
             }
