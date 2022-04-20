@@ -459,16 +459,11 @@
                         <li class="menu-title" key="t-menu">Menu</li>
 
                         <li>
-                            <a href="javascript: void(0);" class="waves-effect">
+                            <a href="{{route('dashboard')}}" class="waves-effect">
                                 <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="/Job_Title" key="t-default">Job Title</a></li>
-                                <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
-                                <li><a href="/leave" key="t-crypto">Leave</a></li>
-                                <li><a href="/letter" key="t-blog">Letter</a></li>
-                            </ul>
+                           
                        
                         </li>
 
@@ -511,7 +506,7 @@
                                 <li>
                                     <li><a href="{{ route('departments') }}" key="t-light-sidebar">Departments</a></li>
                                     <li><a href="{{ route('educationlevels') }}" key="t-compact-sidebar">Education Levels</a></li>
-                                    {{-- <li><a href="{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li> --}}
+                                    <li><a href="{{ route('documents') }}" key="t-icon-sidebar">Documents</a></li>
                                     <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
                                     <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
                                     <li><a href="/Job_Title" key="t-default">Job Title</a></li>

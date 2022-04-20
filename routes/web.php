@@ -52,7 +52,7 @@ Route::post('/addemployee',[EmployeeController::class,'addemployee'])->name('add
 Route::get('/editemployee/{EmployeeID}',[EmployeeController::class,'editemployee']);
 Route::post('/updateemployee',[EmployeeController::class,'updateemployee'])->name('updateemployee');
 Route::get('/deleteemployee/{EmployeeID}',[EmployeeController::class,'deletemployee']);
-
+Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_employee']);
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
@@ -89,3 +89,6 @@ Route::get('/edit_letter/{id}',[WorkController::class,'edit_letter']);
 Route::post('updateletter/{id}',[WorkController::class,'update_letter']);
 Route::get('/delete_letter/{id}',[WorkController::class,'destroy_letter']);
 Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
+
+Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::view('/customer', 'customer')->name('customer');
