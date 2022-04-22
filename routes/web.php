@@ -55,16 +55,16 @@ Route::get('/deleteemployee/{EmployeeID}',[EmployeeController::class,'deletemplo
 Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_employee']);
 
 
-Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
+Route::get('/', [LoginController::class, 'login'])->name('auth.login');
 Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
 Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
 Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
 // Route::get('/employ_dashboard', [LoginController::class, 'hr_dashboard'])->name('auth.hr_dashboard');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-Route::get('/', function () {
-    return view('check');
-});
+// Route::get('/', function () {
+//     return view('check');
+// });
 
 Route::get('/Job_Title',[WorkController::class,'job']);
 Route::get('/edit_job/{id}',[WorkController::class,'edit_job']);
@@ -101,5 +101,7 @@ Route::post('updatereport/{id}',[WorkController::class,'update_report']);
 Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
 // employ section
 Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
+Route::get('employeeprofile/{id}',[WorkController::class,'employeeprofile']);
 
+Route::get('/blank',[WorkController::class,'blank_page']);
 

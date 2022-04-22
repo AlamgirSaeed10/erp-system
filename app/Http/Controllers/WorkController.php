@@ -191,10 +191,6 @@ class WorkController extends Controller
 
     }
 
-    // function addletter()
-    // {
-    //     return view('employee/addletter');
-    // }
 
     public function destroy_letter($LetterID) 
     {
@@ -222,7 +218,7 @@ class WorkController extends Controller
         $reports = DB::table('report')->get();
         $employees  =  DB::table('employee')->select('employee.EmployeeID', 'employee.FirstName')->get();
         // dd($employees);
-        return view('employee/report',compact('reports','employees'));
+        return view('employe_section/report',compact('reports','employees'));
     }
 
     function add_report(Request $request)
@@ -265,7 +261,7 @@ class WorkController extends Controller
     {
         $reports = DB::select('select * from `report` where ReportID   = ?',[$ReportID  ]);
         //  dd($jobtitles);
-        return view('employee/edit_report',['reports'=> $reports]);
+        return view('employe_section/edit_report',['reports'=> $reports]);
     }
 
     public function update_report(Request $request,$ReportID )
@@ -289,6 +285,23 @@ class WorkController extends Controller
     {
         DB::delete('delete from report where ReportID = ?',[$ReportID]);
         return redirect('Report')->with('error',' Deleted Successfully')->with('class','danger');
+    }
+
+
+    public function employeeprofile($EmployeeID)
+    {
+        $employee = DB::table('employee')
+        ->join('department', 'employee.DepartmentID', 'department.DepartmentID')
+        ->join('jobtitle', 'employee.JobTitleID', 'jobtitle.JobTitleID')
+        ->get();
+      
+      
+        return view('employe_section.employeeprofile', compact('employee'));
+    }
+
+    function blank_page()
+    {
+        return view('employee/blank');
     }
     
 }

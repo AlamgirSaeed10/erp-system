@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('employe_section.layout.employeemain')
 
 @section('title', 'Edit Report')
 @section('content')

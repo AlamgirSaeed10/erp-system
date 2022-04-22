@@ -539,7 +539,7 @@ class EmployeeController extends Controller
         ->get();
         // dd($employee);
         // $employee = DB::select('select * from employee where EmployeeID = ?',[$EmployeeID]);    
-        return view('employee/view_employ', compact('employee'));
+        return view('employee.view_employ', compact('employee'));
 
     }
 }

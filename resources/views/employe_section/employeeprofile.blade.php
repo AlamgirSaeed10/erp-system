@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('employe_section.layout.employeemain')
 
 @section('title', 'Profile')
 
@@ -435,7 +435,7 @@
                 <li>
                   <a href="" class="text-body d-flex align-items-center">
                     <i class="mdi mdi-account-supervisor-circle
-                                                          font-size-18 text-muted me-2"></i> <span class="me-auto">Supervising</span>
+                                                          font-size-18 text-muted me-2"></i> <span class="me-auto">Mail Sent</span>
                   </a>
                 </li>
 

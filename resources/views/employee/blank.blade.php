@@ -1,0 +1,415 @@
+@extends('layout.main')
+
+@section('title', 'Profile')
+
+
+@section('content')
+
+<div class="main-content">
+
+  <div class="page-content">
+    <div class="container-fluid">
+
+      <!-- start page title -->
+      <div class="row">
+        <div class="col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Employee Detail</h4>
+
+            <div class="page-title-right">
+              <div class="page-title-right">
+                <!-- button will appear here -->
+
+                <a href="{{URL('/Employee')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-arrow-left  me-1 pt-5"></i> Go Back</a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-xl-9">
+          @if (session('error'))
+
+          <div class="alert alert-{{ Session::get('class') }} p-3 ">
+
+            {{ Session::get('error') }}
+          </div>
+
+          @endif
+
+          @if (count($errors) > 0)
+
+          <div>
+            <div class="alert alert-danger pt-3 pl-0   border-3 bg-danger text-white">
+              <p class="font-weight-bold"> There were some problems with your input.</p>
+              <ul>
+
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+
+                @endforeach
+              </ul>
+            </div>
+          </div>
+
+          @endif
+          <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+                  <div class="media">
+                      <div class="me-3">
+                        <img src="{{ asset('assets/images/users/avatar.png')}}" alt="" class="avatar-md rounded ">
+                      </div>
+                      <div class="media-body align-self-center">
+                          <div class="text-muted">
+                              <h5></h5>
+                              <p class="mb-1">Usama Shakeel <span class="badge badge-soft-success font-size-11 me-2 ml-5"> Permanent </span> </p>
+                          </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+          <form action="{{URL('/EmployeeUpdate')}}" method="post" enctype="multipart/form-data">
+            <div class="row">
+
+              {{csrf_field()}}
+              <input type="hidden" name="EmployeeID" value="{{Session::get('EmployeeID')}}" readonly="">
+
+              <div>
+                <div class="card">
+                  <div class="card-header bg-transparent border-bottom h5">
+                    Personal Information
+                  </div>
+                  <div class="card-body">
+                    <!-- start of personal detail row -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-sm table-responsive">
+                      <tr>
+                        <td class="fw-bold col-md-3">Branch</td>
+                        <td class="col-md-6">jfbdjbjdbfjdsfb</td>
+
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Title</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">First Name</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Middle Name</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Last Name</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Date of Birth</td>
+                        <td>mnbnm</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Is Supervisor</td>
+                        <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Gender</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Email</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Password</td>
+                        <td class="text-success">jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Nationality</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">MobileNo</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Home Phone</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Full Address</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Education Level</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Last Degree</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+
+                    </table>
+
+                    <div class="row">
+
+                    </div>
+                    <!-- end of personal detail row -->
+                  </div>
+                </div>
+
+
+                <div class="card">
+                  <div class="card-header bg-transparent border-bottom h5">
+                    Marital Detail
+                  </div>
+                  <div class="card-body">
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-sm table-responsive">
+                      <tr>
+                        <td class="fw-bold col-md-3">MaritalStatus</td>
+                        <td class="col-md-6">jfbdjbjdbfjdsfb</td>
+
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">SSNorGID</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">SpouseName</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+
+
+
+                      <tr>
+                        <td class="fw-bold">SpouseEmployer</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">SpouseWorkPhone</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+
+
+                    </table>
+
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-transparent border-bottom h5">
+                    Visa / Passport Section
+                  </div>
+                  <div class="card-body">
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-sm table-responsive">
+                      <tr>
+                        <td class="fw-bold col-md-3">VisaIssueDate</td>
+                        <td class="col-md-6">nbmnbmnbmnbm</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">VisaExpiryDate</td>
+                        <td>bnmnbmnbnm</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">PassportNo</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">PassportExpiry</td>
+                        <td>nbmnbmnbnb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">EidNo</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">EidExpiry</td>
+                        <td>bnmbnmnnbmn</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-transparent border-bottom h5">
+                    Next of Kin
+                  </div>
+                  <div class="card-body">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-sm table-responsive">
+                      <tr>
+                        <td class="fw-bold col-md-3">NextofKinName</td>
+                        <td class="col-md-6">jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">NextofKinAddress</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">NextofKinPhone</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">NextofKinRelationship</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-transparent border-bottom h5  ">
+                    Offical Details
+                  </div>
+                  <div class="card-body">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-sm table-responsive">
+                      <tr>
+                        <td class="fw-bold col-md-3">JobTitle</td>
+                        <td class="col-md-6">jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">DepartmentID</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">SupervisorID</td>
+                        <td>jhgjhgjghj</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">WorkLocation</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">EmailOffical</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">WorkPhone</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">StartDate</td>
+                        <td>hgytghy ghjytj</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Salary</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Comisison (If Any)</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Salary Remarks (If Any)</td>
+                        <td>jfbdjbjdbfjdsfb</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </form>
+          <!-- end card -->
+        </div>
+
+        <div class="col-xl-3">
+          <div class="card">
+            <div class="card-body p-4">
+
+              <ul class="list-unstyled categories-list">
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-speedometer-slow font-size-16 text-muted me-2"></i> <span class="me-auto">Dashboard</span>
+                  </a>
+                </li>
+
+
+
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-folder font-size-16 text-warning me-2"></i> <span class="me-auto">Documents</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-bank font-size-16 text-muted me-2"></i> <span class="me-auto">Salary</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-account-cash font-size-20 text-muted me-2"></i> <span class="me-auto">Advance / Loan</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-file-document font-size-18 me-2 text-muted "></i> <span class="me-auto">Letter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-calendar-cursor
+                                                      font-size-16 me-2"></i> <span class="me-auto">Leave</span> <i class="mdi mdi-circle-medium text-danger ms-2"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-fingerprint
+                                                          text-muted font-size-18 me-2"></i> <span class="me-auto">Attendance</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="bx bxs-error-circle
+
+                                                          text-muted font-size-18 me-2"></i> <span class="me-auto">Warnings</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="fas fa-money-bill-alt
+                                                          font-size-16 text-muted me-2"></i> <span class="me-auto">Deposit</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-account-supervisor-circle
+                                                          font-size-18 text-muted me-2"></i> <span class="me-auto">Supervising</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" class="text-body d-flex align-items-center">
+                    <i class="mdi mdi-account-supervisor-circle
+                                                      font-size-18 text-muted me-2"></i> <span class="me-auto">Salary Slip</span>
+                  </a>
+                </li>
+                <!--   <li>
+                                                            <a href="javascript: void(0);" class="text-body d-flex align-items-center">
+                                                                <i class="mdi mdi-cog text-muted font-size-16 me-2"></i> <span class="me-auto">Setting</span><span class="badge bg-success rounded-pill ms-2">01</span>
+                                                            </a>
+                                                        </li> -->
+              </ul>
+
+
+
+            </div>
+          </div>
+          <!-- end card -->
+        </div>
+      </div>
+    </div>
+</div>
+
+  @endsection
