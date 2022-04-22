@@ -22,7 +22,7 @@ Route::get('/departments',[EmployeeController::class,'show_departments'])->name(
 Route::get('/deletedepartment/{DepartmentID}',[EmployeeController::class,'deletedepartment']);
 Route::post('/adddepartments',[EmployeeController::class,'add_department'])->name('adddepartments');
 Route::post('/updatedepartment',[EmployeeController::class,'updatedepartment'])->name('updatedepartment');
-Route::get('/editdepartment/{DepartmentID}',[EmployeeController::class,'editpartment']);
+Route::get('/editdepartment/{DepartmentID}',[EmployeeController::class,'editdepartment']);
 //educationlevels
 Route::get('/educationlevels',[EmployeeController::class,'educationlevels'])->name('educationlevels');
 Route::post('/addeducationlevels',[EmployeeController::class,'add_educationlevels'])->name('addeducationlevels');
@@ -37,13 +37,14 @@ Route::post('/uploaddocument',[EmployeeController::class,'add_documents'])->name
 Route::get('/stafftype',[EmployeeController::class,'stafftype'])->name('stafftype');
 Route::post('/addstafftype',[EmployeeController::class,'addstafftype'])->name('addstafftype');
 Route::get('/deletestafftype/{StaffTypeID}',[EmployeeController::class,'deletestafftype']);
-Route::post('/updateeducationlevel',[EmployeeController::class,'updateeducationlevel'])->name('updateeducationlevel');
-Route::get('/editeducationlevel/{StaffTypeID}',[EmployeeController::class,'editeducationlevel']);
+Route::post('/updatestafftype',[EmployeeController::class,'updatestafftype'])->name('updatestafftype');
+Route::get('/editstafftype/{StaffTypeID}',[EmployeeController::class,'editstafftype']);
 //Title
 Route::get('/title',[EmployeeController::class,'title'])->name('title');
 Route::post('/addtitle',[EmployeeController::class,'addtitle'])->name('addtitle');
 Route::get('/deletetitle/{TitleID}',[EmployeeController::class,'deletetitle']);
-
+Route::post('/updatetitle',[EmployeeController::class,'updatetitle'])->name('updatetitle');
+Route::get('/edittitle/{TitleID}',[EmployeeController::class,'edittitle']);
 //employee
 Route::get('/employee',[EmployeeController::class,'showemployees'])->name('showemployee');
 Route::get('/employeeform',[EmployeeController::class,'employeeform'])->name('employeeform');
@@ -51,18 +52,19 @@ Route::post('/addemployee',[EmployeeController::class,'addemployee'])->name('add
 Route::get('/editemployee/{EmployeeID}',[EmployeeController::class,'editemployee']);
 Route::post('/updateemployee',[EmployeeController::class,'updateemployee'])->name('updateemployee');
 Route::get('/deleteemployee/{EmployeeID}',[EmployeeController::class,'deletemployee']);
+Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_employee']);
 
 
-
-Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
+Route::get('/', [LoginController::class, 'login'])->name('auth.login');
 Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
 Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
-Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('auth.employ_dashboard');
+Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
+// Route::get('/employ_dashboard', [LoginController::class, 'hr_dashboard'])->name('auth.hr_dashboard');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-Route::get('/', function () {
-    return view('check');
-});
+// Route::get('/', function () {
+//     return view('check');
+// });
 
 Route::get('/Job_Title',[WorkController::class,'job']);
 Route::get('/edit_job/{id}',[WorkController::class,'edit_job']);
@@ -88,3 +90,18 @@ Route::get('/edit_letter/{id}',[WorkController::class,'edit_letter']);
 Route::post('updateletter/{id}',[WorkController::class,'update_letter']);
 Route::get('/delete_letter/{id}',[WorkController::class,'destroy_letter']);
 Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
+
+Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::view('/customer', 'customer')->name('customer');
+
+Route::get('/Report',[WorkController::class,'report']);
+Route::post('/Report',[WorkController::class,'add_report'])->name('Report');
+Route::get('/edit_report/{id}',[WorkController::class,'edit_report']);
+Route::post('updatereport/{id}',[WorkController::class,'update_report']);
+Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
+// employ section
+Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
+Route::get('employeeprofile/{id}',[WorkController::class,'employeeprofile']);
+
+Route::get('/blank',[WorkController::class,'blank_page']);
+

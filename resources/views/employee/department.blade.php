@@ -86,7 +86,7 @@
                                                 {{ $value->DepartmentName  }}
                                             </td>
                                             <td class="col-md-1">
-                                                <a href="#"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                                <a href="/editdepartment/ {{ $value->DepartmentID  }}"><i class="bx bx-pencil align-middle me-1"></i></a>
                                                 <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('deleteletter','{{ $value->DepartmentID }}')"></i>
                                             </td>
                                         </tr>
@@ -109,11 +109,11 @@
                     <div class="col-sm-6">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> © Skote.
+                        </script> © ShahCorporation.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            Design & Develop by Teqholic
                         </div>
                     </div>
                 </div>

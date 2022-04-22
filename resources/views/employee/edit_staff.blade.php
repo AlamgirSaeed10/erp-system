@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Education Level')
+@section('title', 'Staff')
 
 
 @section('content')
@@ -14,20 +14,20 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18"> Edit Education Level</h4>
+                        <h4 class="mb-sm-0 font-size-18"> Edit Staff Type</h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-4"></h4>
-                        <form action="{{ route('updateeducationlevel') }}" method="POST">
+                        <form action="{{ route('updatestafftype') }}" method="POST">
                             {{csrf_field()}}
-                            <input type="hidden" class="form-control" name="EducationLevelID" value="{{ $educationlevel[0]->EducationLevelID }}">
+                            <input type="hidden" class="form-control" name="StaffTypeID" value="{{ $staff[0]->StaffTypeID }}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="basicpill-firstname-input">Education Level*</label>
-                                        <input type="text" class="form-control" name="EducationLevelName" value="{{ $educationlevel[0]->EducationLevelName}}">
+                                        <label for="basicpill-firstname-input">Staff Type*</label>
+                                        <input type="text" class="form-control" name="StaffType" value='{{$staff[0]->StaffType }}'>
                                     </div>
                                 </div>
                                 <div><button type="submit" class="btn btn-success w-lg float-right">Update</button>

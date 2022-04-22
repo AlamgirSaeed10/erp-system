@@ -83,8 +83,8 @@
                                             {{ $value->EducationLevelName }}
                                             </td>
                                             <td class="col-md-1">
-                                                <a href="#"><i class="bx bx-pencil align-middle me-1"></i></a>
-                                                <a href="deleteeducationlevel/{{ $value->EducationLevelID }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a>
+                                                <a href="/editeducationlevel/{{ $value->EducationLevelID }}"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                                <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('deleteeducationlevel','{{$value->EducationLevelID}}')"></i>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -99,6 +99,29 @@
             </div> <!-- end row -->
         </div>
 
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Are you sure to delete this information ?</p>
+                    <p class="text-center">
+
+
+
+                        <a href="#" class="btn btn-danger " id="delete_link">Delete</a>
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
         <footer class="footer">
             <div class="container-fluid">
@@ -106,11 +129,11 @@
                     <div class="col-sm-6">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> © Skote.
+                        </script> © ShahCorporation.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            Design & Develop by Teqholic
                         </div>
                     </div>
                 </div>
@@ -118,4 +141,14 @@
         </footer>
     </div>
 
+    <script type="text/javascript">
+    function delete_confirm2(url, EducationLevelID) {
+        console.log(EducationLevelID);
+        url = '{{URL::TO('/')}}' + /deleteeducationlevel/ + EducationLevelID;
+        jQuery('#staticBackdrop').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', url);
+    }
+</script>
     @endsection

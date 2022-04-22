@@ -97,7 +97,7 @@ class WorkController extends Controller
         // dd($request);
         $LeaveStatus = $request->input('LeaveStatus');
         DB::update('update `leave_status` set LeaveStatus= ? where LeaveStatusID = ?',[$LeaveStatus,$LeaveStatusID]);
-        return redirect()->back();
+        // return redirect()->back();
         return redirect('Leave_Status');
     }
 
@@ -191,10 +191,6 @@ class WorkController extends Controller
 
     }
 
-    function addletter()
-    {
-        return view('employee/addletter');
-    }
 
     public function destroy_letter($LetterID) 
     {
@@ -215,6 +211,97 @@ class WorkController extends Controller
         $Content = $request->input('Content');
         DB::update('update `letter` set Title= ?,Content= ? where LetterID = ?',[$Title,$Content,$LetterID]);
         return redirect('letter')->with('primary',' Updates Successfully')->with('class','primary');
+    }
+
+    function report()
+    {
+        $reports = DB::table('report')->get();
+        $employees  =  DB::table('employee')->select('employee.EmployeeID', 'employee.FirstName')->get();
+        // dd($employees);
+        return view('employe_section/report',compact('reports','employees'));
+    }
+
+    function add_report(Request $request)
+    {
+        $this->validate($request, [
+            'Title' => 'required|max:30',
+            'TextArea' => 'required|max:30',
+         
+        ]);
+
+
+        $Title = $request->input('Title');
+        $TextArea = $request->input('TextArea');
+        $EmployeeID = $request->input('user_id');
+
+        if ($request->hasFile('ReportFile')) {
+            $file = $request->file('ReportFile');
+            $fileName = $file->getClientOriginalName();
+            $destinationPath = public_path() . '/employee_report';
+            $storage = $file->move($destinationPath, $fileName);
+        } else {
+            $fileName = Null;
+        }
+
+
+        $data=array(
+        'Title'=>$Title,
+        "TextArea"=>$TextArea,
+        "EmployeeID"=>$EmployeeID,
+        "ReportFile"=>$fileName
+        );
+        
+
+        DB::table('report')->insert($data);
+        return redirect()->route('Report');
+
+    }
+
+    function edit_report($ReportID)
+    {
+        $reports = DB::select('select * from `report` where ReportID   = ?',[$ReportID  ]);
+        //  dd($jobtitles);
+        return view('employe_section/edit_report',['reports'=> $reports]);
+    }
+
+    public function update_report(Request $request,$ReportID )
+    {
+        $Title = $request->input('Title');
+        $TextArea = $request->input('TextArea');
+        if ($request->hasFile('ReportFile')) {
+            $file = $request->file('ReportFile');
+            $fileName = $file->getClientOriginalName();
+            $destinationPath = public_path() . '/employee_report';
+            $storage = $file->move($destinationPath, $fileName);
+        } else {
+            $fileName =  $request->input('OldFile');;
+        }
+
+        DB::update('update `report` set Title= ?, TextArea= ?, ReportFile = ?  where ReportID = ?',[$Title,$TextArea,$fileName,$ReportID]);
+        return redirect('Report')->with('primary',' Updates Successfully')->with('class','primary');
+    }
+
+    public function destroy_report($ReportID) 
+    {
+        DB::delete('delete from report where ReportID = ?',[$ReportID]);
+        return redirect('Report')->with('error',' Deleted Successfully')->with('class','danger');
+    }
+
+
+    public function employeeprofile($EmployeeID)
+    {
+        $employee = DB::table('employee')
+        ->join('department', 'employee.DepartmentID', 'department.DepartmentID')
+        ->join('jobtitle', 'employee.JobTitleID', 'jobtitle.JobTitleID')
+        ->get();
+      
+      
+        return view('employe_section.employeeprofile', compact('employee'));
+    }
+
+    function blank_page()
+    {
+        return view('employee/blank');
     }
     
 }

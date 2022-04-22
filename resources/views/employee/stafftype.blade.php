@@ -64,7 +64,7 @@
                     <div class="col-12">
                     <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">List of Letters</h4>
+                        <h4 class="card-title mb-4">List of Staff Type</h4>
                         <div class="table-responsive">
                             <table class="table align-middle table-nowrap mb-0">
                                 <tbody>
@@ -85,8 +85,8 @@
                                             {{ $value->StaffType }}
                                         </td>
                                         <td class="col-md-1">
-                                            <a href=""><i class="bx bx-pencil align-middle me-1"></i></a>
-                                            <a href="deletestafftype/{{ $value->StaffTypeID }}"  class="text-primary"><i class="bx bx-trash  align-middle me-1"></i></a>
+                                            <a href="/editstafftype/{{ $value->StaffTypeID }}"><i class="bx bx-pencil align-middle me-1"></i></a>
+                                            <i class="bx bx-trash  align-middle me-1 text-primary cursor-pointer" onclick="delete_confirm2('deletestafftype','{{$value->StaffTypeID}}')"></i>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -108,11 +108,11 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Skote.
+                            </script> © ShahCorporation.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
+                                Design & Develop by Teqholic
                             </div>
                         </div>
                     </div>
@@ -144,20 +144,14 @@
         </div>
 
 
-        <script>
-            function deletestafftype(url, id) {
-
-
-
-                url = '{{ URL::TO('/') }}/' + 'deletestafftype' + '/' + id;
-
-
-
-                jQuery('#staticBackdrop').modal('show', {
-                    backdrop: 'static'
-                });
-                document.getElementById('delete_link').setAttribute('href', url);
-
-            }
-        </script>
+    <script type="text/javascript">
+    function delete_confirm2(url, StaffTypeID) {
+        console.log(StaffTypeID);
+        url = '{{URL::TO('/')}}' + /deletestafftype/ + StaffTypeID;
+        jQuery('#staticBackdrop').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', url);
+    }
+</script>
     @endsection

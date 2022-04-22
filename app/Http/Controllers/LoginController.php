@@ -42,16 +42,17 @@ class LoginController extends Controller
                 Session::put('Email', $data[0]->Email);
                 Session::put('StaffType', $data[0]->StaffType);
                 Session::put('DepartmentID', $data[0]->DepartmentID);
+                Session::put('Picture', $data[0]->Picture);
                 Session::put('LoggedUser');
 
 
                 if (session::get('StaffType') == 'HR') {
-                    return redirect('employee')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
+                    return redirect('dashboard')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
                 } elseif (session::get('StaffType') == 'GM') {
-                    return redirect('showemployee')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
+                    return redirect('dashboard')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
                 } elseif (session::get('StaffType') == 'OM') {
 
-                    return redirect('admin_dashboard')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
+                    return redirect('dashboard')->with('error', 'Welcome to Extensive HR System')->with('class', 'success');
                     // return redirect('showemployee')->with('error','Welcome to Extensive HR System')->with('class','success');
 
                 }
@@ -82,6 +83,7 @@ class LoginController extends Controller
                 Session::put('Email', $data[0]->Email);
                 Session::put('StaffType', $data[0]->StaffType);
                 Session::put('BranchID', $data[0]->DepartmentID);
+                Session::put('Picture', $data[0]->Picture);
                 Session::put('LoggedUser');
                 return redirect('employ_dashboard');
             } else {

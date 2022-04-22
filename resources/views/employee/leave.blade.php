@@ -36,8 +36,7 @@
                                     <div class="mb-3">
                                         <label for="basicpill-firstname-input">From Date *</label>
                                         <div class="input-group" id="datepicker2">
-                                            <input type="text" name="FromDate" autocomplete="off" class="form-control" placeholder="dd/mm/yyyy" data-date-format="dd/mm/yyyy" data-date-container="#datepicker2" data-provide="datepicker" data-date-autoclose="true">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                            <input type="date" name="FromDate" autocomplete="off" class="form-control" placeholder="dd/mm/yyyy" data-date-format="dd/mm/yyyy" >
                                         </div>
                                         <span style="color: red">@error('FromDate'){{ $message }} @enderror </span>
                                     </div>
@@ -46,8 +45,7 @@
                                     <div class="mb-3">
                                         <label for="basicpill-firstname-input">To Date *</label>
                                         <div class="input-group" id="datepicker21">
-                                            <input type="text" name="ToDate" autocomplete="off" class="form-control" placeholder="dd/mm/yyyy" data-date-format="dd/mm/yyyy" data-date-container="#datepicker21" data-provide="datepicker" data-date-autoclose="true">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span><br>
+                                            <input type="date" name="ToDate" autocomplete="off" class="form-control" placeholder="dd/mm/yyyy">
                                         </div>
                                         <span style="color: red">@error('ToDate'){{ $message }} @enderror </span>
                                     </div>
@@ -146,11 +144,11 @@
             <div class="col-sm-6">
                 <script>
                     document.write(new Date().getFullYear())
-                </script> © Skote.
+                </script> © ShahCorporation.
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Themesbrand
+                    Design & Develop by Teqholic
                 </div>
             </div>
         </div>
