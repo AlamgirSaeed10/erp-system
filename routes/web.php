@@ -122,3 +122,5 @@ Route::get('EmployeeAttendance',[WorkController::class,'EmployeeAttendances']);
 
 Route::get('employe_att',[WorkController::class,'emplo_att']);
 Route::post('employe_att',[WorkController::class,'add_emplo'])->name('employe_att');
+
+Route::get('EmployeeWarningLeter',[WorkController::class,'employeewarningletter']);

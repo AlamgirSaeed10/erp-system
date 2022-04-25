@@ -417,4 +417,9 @@ class WorkController extends Controller
         ]);
         return redirect()->back();
     }
+
+    function employeewarningletter()
+    {
+        return view('employe_section/employee_warning_letter');
+    }
 }
