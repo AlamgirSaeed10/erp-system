@@ -109,8 +109,7 @@
                                             <select name="StaffType" id="StaffType" class="form-select">
                                                 <option>---Select----</option>
                                                 @foreach ($stafftype as $value)
-                                                <option value="{{ $value->StaffType }}"
-                                                    {{ $employee[0]->StaffType == $value->StaffType ? 'selected=selected' : '' }}>
+                                                <option value="{{ $value->StaffType }}"{{ $employee[0]->StaffType == $value->StaffType ? 'selected=selected' : '' }}>
                                                     {{ $value->StaffType }}</option>
                                             @endforeach
 
@@ -638,7 +637,7 @@
                                     </div>
                                     
                                     <div class="col-md-4">
-                                        <input type="hidden" class="form-control" name="oldpicture"   value="{{$employee[0]->Password}}">
+                                        <input type="hidden" class="form-control" name="oldpicture"   value="{{$employee[0]->Picture}}">
                                         <div class="mb-3"><label for="basicpill-firstname-input"
                                                 class="pr-5">Upload Staff Picture</label><br><input
                                                 type="file" name="newpicture" id="UploadPicture"></div>

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +60,7 @@ Route::get('/employeedetail/{EmployeeID}',[EmployeeController::class,'view_emplo
 Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
 Route::post('/check', [LoginController::class, 'UserVerify'])->name('auth.check');
 Route::get('/admin_dashboard', [LoginController::class, 'admin_dashboard'])->name('auth.admin_dashboard');
-Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
+// Route::get('/employ_dashboard', [LoginController::class, 'employ_dashboard'])->name('employ_dashboard');
 // Route::get('/employ_dashboard', [LoginController::class, 'hr_dashboard'])->name('auth.hr_dashboard');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
@@ -94,7 +96,31 @@ Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::view('/customer', 'customer')->name('customer');
 
+
+
+Route::get('/Report',[WorkController::class,'report']);
+Route::post('/Report',[WorkController::class,'add_report'])->name('Report');
+Route::get('/edit_report/{id}',[WorkController::class,'edit_report']);
+Route::post('updatereport/{id}',[WorkController::class,'update_report']);
+Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
+
+
 // employ section
-Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
 
 
+// Route::group(['middleware'=>['AuthCheck']],function(){
+    
+// });
+Route::group(['middleware' => ['AuthCheck']], function () {
+    Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
+});
+
+
+// !............Product Section......................!
+Route::get('/product',[ProductController::class,'showproducts'])->name('showproducts');
+Route::get('/productform',[ProductController::class,'productform'])->name('productform');
+Route::post('/addproduct',[ProductController::class,'addproduct'])->name('addproduct_data');
+Route::get('/editproduct/{ProductID}',[ProductController::class,'editproduct']);
+Route::post('/updateproduct',[ProductController::class,'updateproduct'])->name('updateproduct');
+Route::get('/deleteproduct/{ProductID}',[ProductController::class,'deletproduct']);
+Route::get('/productedetail/{ProductID}',[ProductController::class,'view_product']);

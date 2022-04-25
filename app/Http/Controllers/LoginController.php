@@ -38,7 +38,7 @@ class LoginController extends Controller
                 // dd($data);
             if (count($data) > 0) {
                 Session::put('FullName', $data[0]->FirstName);
-                Session::put('UserID', $data[0]->EmployeeID);
+                Session::put('EmployeeID', $data[0]->EmployeeID);
                 Session::put('Email', $data[0]->Email);
                 Session::put('StaffType', $data[0]->StaffType);
                 Session::put('DepartmentID', $data[0]->DepartmentID);

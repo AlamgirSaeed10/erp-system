@@ -220,9 +220,9 @@ class EmployeeController extends Controller
      
                            $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="employeedetail/'.$row->EmployeeID.'"" class="btn btn-sm edit" title="Edit">
                            <i class="fas fa-eye"></i>
+
                        </a>  <a href ="#" onclick="delete_employee(' . $row->EmployeeID . ')" class="btn  btn-sm edit waves-effect waves-light" title="Edit" id="sa-params">
-                       <i class="fas fa-trash-alt"></i>
-                   </a>';
+                       <i class="fas fa-trash-alt"></i></a>';
     
                             return $btn;
                     })
@@ -526,6 +526,7 @@ class EmployeeController extends Controller
 
     function deletemployee($EmployeeID)
     {
+        dd('heelo');
         DB::delete('delete from employee where EmployeeID = ?',[$EmployeeID]);
         return redirect()->back();
     }

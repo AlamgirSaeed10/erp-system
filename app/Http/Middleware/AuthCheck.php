@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-
+// use Illuminate\Support\Facades\Session;
+use Session;
+use URL;
+use DB;
 class AuthCheck
 {
     /**
@@ -18,15 +20,14 @@ class AuthCheck
     public function handle(Request $request, Closure $next)
     {
         
-        
-        
-        // if(!Session()->has('LoggedUser') && ($request->path() != 'auth/login')){
-        //     return redirect('auth/login')->with('failed','You must be logged in');
+        // dd(Session()->get('FullName'));
+        // if (session::get('EmployeeID')) {
+        //     return redirect('/login')->with('error', 'Session expired')->with('class', 'danger');
+           
+        // } else {
+            
+        //     return $next($request);
         // }
-
-        // if(Session()->has('LoggedUser') && ($request->path() == 'auth/login')){
-        //     return back();
-        // }
-        return $next($request);
+            return $next($request);
     }
 }

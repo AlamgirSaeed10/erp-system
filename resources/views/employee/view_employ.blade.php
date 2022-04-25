@@ -199,9 +199,6 @@
                                 <td class="fw-bold">PassportExpiry</td>
                                 <td>{{$employee[0]->PassportExpiry}}</td>
                             </tr>
-
-
-
                         </table>
 
 
@@ -232,9 +229,6 @@
                                 <td class="fw-bold">NextofKinPhone</td>
                                 <td>{{$employee[0]->NextofKinPhone}}</td>
                             </tr>
-
-
-
                             <tr>
                                 <td class="fw-bold">NextofKinRelationship</td>
                                 <td>{{$employee[0]->NextofKinRelationship}}</td>
