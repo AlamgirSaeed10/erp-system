@@ -422,4 +422,29 @@ class WorkController extends Controller
     {
         return view('employe_section/employee_warning_letter');
     }
+
+    function employeesalary($EmployeeID)
+    {
+        $employee = DB::table('employee')
+            ->join('department', 'employee.DepartmentID', 'department.DepartmentID')
+            ->join('jobtitle', 'employee.JobTitleID', 'jobtitle.JobTitleID')->where('EmployeeID','=',$EmployeeID)
+            ->get();
+       
+        $employeesalary=DB::table('emp_salary')->where('EmployeeID','=', $EmployeeID)->get();
+
+      
+
+        return view('employee/salary', compact('employee','employeesalary'));
+    }
+
+    function addemployeesalary(Request $request)
+    {
+     $salary = array('EmployeeID' => $request->EmployeeID, 
+                        'Basic' =>  $request->Salary  );
+
+                        DB::table('emp_salary')->insert($salary);
+
+       return redirect()->back()->with('error','Salary Saved Successfully')->with('class','success');
+    }
+
 }

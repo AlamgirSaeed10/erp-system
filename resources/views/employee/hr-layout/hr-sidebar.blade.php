@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="text-body d-flex align-items-center">
+                    <a href="/salary/{{$employee[0]->EmployeeID}}" class="text-body d-flex align-items-center">
                         <i class="mdi mdi-bank font-size-16 text-muted me-2"></i> <span
                             class="me-auto">Salary</span>
                     </a>

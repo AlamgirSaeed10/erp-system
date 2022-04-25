@@ -144,3 +144,7 @@ Route::get('employe_att',[WorkController::class,'emplo_att']);
 Route::post('employe_att',[WorkController::class,'add_emplo'])->name('employe_att');
 
 Route::get('EmployeeWarningLeter',[WorkController::class,'employeewarningletter']);
+
+Route::get('salary/{id}',[WorkController::class,'employeesalary']);
+
+Route::post('salary',[WorkController::class,'addemployeesalary'])->name('addemployeesalary');
