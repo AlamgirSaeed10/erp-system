@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DataTables;
+use Session;
+use URL;
+use Image;
+use Excel;
+use File;
+use PDF;
 
 class EmployeeController extends Controller
 {
@@ -218,7 +224,7 @@ class EmployeeController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
      
-                           $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="employeedetail/'.$row->EmployeeID.'"" class="btn btn-sm edit" title="Edit">
+                           $btn = '<a href="editemployee/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit"> <i class="fas fa-pencil-alt"></i> </a> <a  href ="employeedetail/'.$row->EmployeeID.'" class="btn btn-sm edit" title="Edit">
                            <i class="fas fa-eye"></i>
 
                        </a>  <a href ="#" onclick="delete_employee(' . $row->EmployeeID . ')" class="btn  btn-sm edit waves-effect waves-light" title="Edit" id="sa-params">
@@ -540,7 +546,191 @@ class EmployeeController extends Controller
         ->get();
         // dd($employee);
         // $employee = DB::select('select * from employee where EmployeeID = ?',[$EmployeeID]);    
-        return view('employee/view_employ', compact('employee'));
+        return view('employee.view_employ', compact('employee'));
 
     }
+
+    public function EmployeeDocuments()
+     {
+
+         $employee = DB::table('employee')->where('EmployeeID',session::get('EmployeeID'))->get();
+         $documents = DB::table('documents')->where('EmployeeID',session::get('EmployeeID'))->get();
+       
+        return view('employe_section.employeedocuments',compact('employee','documents'));
+
+     }
+
+     public function EmployeeDocumentsUpload(Request $request)
+     {
+
+      
+
+                    if ($request->file('UploadFile')!=null)
+                                    {
+                            
+                                $this->validate($request, [
+
+                                  
+                                    'FileName' => 'required',
+                                    'UploadFile' => 'required|mimes:jpeg,png,jpg,gif,doc,docx,bmp,pdf|max:20000',
+
+                                    ] );
+
+                                $file = $request->file('UploadFile');
+                                $input['filename'] = time().'.'.$file->extension();
+  
+                                $destinationPath = public_path('/documents');
+
+                                $file->move($destinationPath, $input['filename']);
+                            
+                                $data = array ( 
+                                'EmployeeID' => session::get('EmployeeID'),
+                                'FileName' => $request->input('FileName'),
+                                'File'=> $input['filename'],
+                                // 'mimeType'=>substr($file->getMimeType(), 0, 5)
+                                                );
+
+                                }
+
+                            
+                                 $id= DB::table('documents')->insertGetId($data);
+         
+         
+       
+        
+         return redirect()->back()->with('error','Document uploaded successfully')->with('class','success');
+        
+
+     }
+
+     public function Deletedocuments($Documentid)
+     {
+        DB::delete('delete from documents where DocumentID = ?',[$Documentid]);
+        return redirect()->back()->with('error','Document Deleted successfully')->with('class','danger');;
+
+     }
+
+     public function Employeeleave()
+     {
+        $employee = DB::table('employee')->where('EmployeeID', session::get('EmployeeID'))->get();
+        $leaves = DB::table('leave')->where('EmployeeID',session::get('EmployeeID'))->get();
+
+       return view('employe_section.employeeleave',compact('employee','leaves'));
+
+     }
+     public function EmployeeLeaveEdit($id)
+{   
+
+    $employee = DB::table('employee')->where('EmployeeID', session::get('EmployeeID'))->get();
+
+    $leave = DB::table('leave')->where('LeaveID',$id)->get();
+ 
+     return view ('employe_section.employeeleaveedit',compact('leave','employee')); 
+}
+     public function EmployeeLeaveSave(request $request)
+{
+    
+    $EmployeeID=session::get('EmployeeID');
+    $this->validate($request,[
+            
+             'FromDate'=>'required | date_format:d/m/Y',
+             'ToDate'=>'required | date_format:d/m/Y',         
+             'Reason'=>'required',         
+             
+              
+              // 'email'=>'required | email|unique:user',
+          ],
+        [
+          'FromDate.required' => 'Leave Start Date is required',
+          'FromDate.date_format' => 'Leave start date does not match the format d/m/Y.',
+          
+
+          'ToDate.required' => 'Leave End Date is required',
+          'ToDate.date_format' => 'Leave end date does not match the format d/m/Y.',
+          'Reason.required' => 'Reason is required',
+          
+            
+               
+        ]);
+
+
+    $data = array(
+      
+      'EmployeeID' => $EmployeeID, 
+      'FromDate' => date('Y-m-d', strtotime(str_replace('/', '-', $request->input('FromDate')))), 
+      'ToDate' => date('Y-m-d', strtotime(str_replace('/', '-', $request->input('ToDate')))),
+      'Reason' => $request->Reason, 
+
+        );
+
+
+    $id= DB::table('leave')->insertGetId($data);
+
+    return redirect()->back()->with('error','Leave Saved Successfully')->with('class','success');
+    
+    
+    
+    
+}   
+
+public function EmployeeLeaveUpdate(Request $request)
+{
+    $data = array('FromDate' => $request->FromDate,
+                    'ToDate' => $request->ToDate,
+                    'Reason' => $request->Reason );
+
+                    $LeaveID=$request->LeaveID;
+ 
+
+                    $id = DB::table('leave')->where('LeaveID', $LeaveID)->update($data);
+                    return redirect('/employeeleave')->with('error','Leave Updated Successfully')->with('class','success');
+}
+    public function Deleteleave($Leaveid)
+     {
+        // DB::delete('delete from leave where LeaveID = ?',['24']);
+        $id = DB::table('leave')->where('LeaveID',$Leaveid)->delete();
+        return redirect()->back()->with('error','Leave Deleted successfully')->with('class','danger');;
+
+     }
+
+     public function Employeeloan()
+     {
+        $employee = DB::table('employee')->where('EmployeeID',session::get('EmployeeID'))->get();
+        $loan = DB::table('loan')->where('EmployeeID',session::get('EmployeeID'))->get();
+         return view('employe_section.loan',compact('employee','loan'));
+     }
+     public function Employeeloansave(Request $request)
+     {
+
+        $this->validate($request,[
+            
+            'RequestDate'=>'required | date_format:d/m/Y',
+            'StartDate'=>'required | date_format:d/m/Y',      
+            'Amount'=>  'required', 
+            'Remarks'=>'required',         
+         ],
+       [
+         'StartDate.required' => 'Leave Start Date is required',
+         'StartDate.date_format' => 'Leave start date does not match the format d/m/Y.',
+         'RequestDate.required' => 'Leave End Date is required',
+         'RequestDate.date_format' => 'Leave end date does not match the format d/m/Y.',
+         'Remarks.required' => 'Reason is required',
+         'Amonut.required' => 'Amount is required',            
+       ]);
+     
+       
+         $EmployeeID=session::get('EmployeeID');
+         $data = array('EmployeeID' => $EmployeeID,
+                        'RequestDate' =>date('Y-m-d', strtotime(str_replace('/', '-', $request->input('RequestDate')))),                             
+                        'Amount' => $request->Amount  ,                          
+                        'Remarks' => $request->Remarks );
+
+                        $id= DB::table('loan')->insertGetId($data);
+                        return redirect()->back()->with('error','Application Submitted Successfully')->with('class','sucess');;
+
+                       
+        
+     }
+
+
 }

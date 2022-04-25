@@ -12,7 +12,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets/images/Shah-Corps_Logo.png') }}">
  
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -77,10 +77,10 @@
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-light.svg" alt="" height="22">
+                                    <img src="assets/images/Shah-Corps_Logo.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height="19">
+                                    <img src="assets/images/Shah-Corps_Logo.png" alt="" height="70">
                                 </span>
                             </a>
                         </div>
@@ -169,7 +169,7 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                                <a class="dropdown-item" href="/employeeprofile/{{Session::get('EmployeeID')}}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
                                 <!-- <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a> -->
                                 <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a> -->
                                 <!-- <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a> -->
@@ -207,10 +207,8 @@
                                 <i class="bx bx-file"></i><span class="badge rounded-pill bg-info float-end"></span>
                                 <span key="t-dashboards">Daily Report</span>
                             </a>
-                           
                         </li>
-
-                     
+                      
                     </ul>
                 </div>
                     <!-- Sidebar -->
@@ -290,21 +288,11 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-
-
-
-
-
-
-
-
-
     <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
     <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
     <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
-
     <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
     <script src="{{asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/libs/spectrum-colorpicker2/spectrum.min.js')}}"></script>
@@ -312,27 +300,18 @@
     <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
     <script src="{{asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
     <script src="{{asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> -->
-
     <!-- Sweet Alerts js -->
     <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-    
     <!-- Sweet alert init js-->
     <script src="assets/js/pages/sweet-alerts.init.js"></script>
-    
-
     <!-- form advanced init -->
     <script src="assets/js/pages/form-advanced.init.js"></script>
-    
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-    
     <!-- dashboard init -->
     <script src="assets/js/pages/dashboard.init.js"></script>
     
     <!-- App js -->
-    
-    
     <script src="assets/libs/select2/js/select2.min.js"></script>
     <script src="assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>

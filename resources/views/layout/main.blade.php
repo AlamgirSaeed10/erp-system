@@ -341,6 +341,94 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{{asset('employee_pictures')}}/{{Session::get('Picture')}}"
+                                
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{Session::get('FullName')}}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href=""><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a> -->
+                                <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a> -->
+                                <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="{{route('auth.logout')}}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" key="t-menu">Menu</li>
+
+                        <li>
+                            <a href="{{route('dashboard')}}" class="waves-effect">
+                                <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
+                                <span key="t-dashboards">Dashboards</span>
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a href="{{route('showemployee')}}" class="waves-effect">
+                                <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
+                                <span key="t-dashboards">Employee</span>
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-layout"></i>
+                                <span key="t-layouts">Other</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li>
+                                    <li><a href="{{ route('departments') }}" key="t-light-sidebar">Departments</a></li>
+                                    <li><a href="{{ route('educationlevels') }}" key="t-compact-sidebar">Education Levels</a></li>
+                                    <li><a href="{{ route('stafftype') }}" key="t-boxed-width">Staff Type</a></li>
+                                    <li><a href="{{ route('title') }}" key="t-preloader">Title</a></li>
+                                    <li><a href="/Job_Title" key="t-default">Job Title</a></li>
+                                    <li><a href="/Leave_Status" key="t-saas">Leave Status</a></li>
+                                    <li><a href="/leave" key="t-crypto">Leave</a></li>
+                                    <li><a href="/letter" key="t-blog">Letter</a></li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+        </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Right Sidebar -->
+    
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- JAVASCRIPT -->
 
 
 
@@ -366,61 +454,61 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> -->
 
     <!-- Sweet Alerts js -->
-    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-
+    <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    
     <!-- Sweet alert init js-->
-    <script src="assets/js/pages/sweet-alerts.init.js"></script>
-
+    <script src="{{ asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
+    
 
     <!-- form advanced init -->
-    <script src="assets/js/pages/form-advanced.init.js"></script>
-
+    <script src="{{ asset('assets/js/pages/form-advanced.init.js')}}"></script>
+    
     <!-- apexcharts -->
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+    
     <!-- dashboard init -->
-    <script src="assets/js/pages/dashboard.init.js"></script>
-
+    <script src="{{ asset('assets/js/pages/dashboard.init.js')}}"></script>
+    
     <!-- App js -->
-
-
-    <script src="assets/libs/select2/js/select2.min.js"></script>
-    <script src="assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script src="assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
-    <script src="assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-    <script src="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-    <script src="assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
+    
+    
+    <script src="{{ asset('assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/spectrum-colorpicker2/spectrum.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
 
     <!-- form advanced init -->
-    <script src="assets/js/pages/form-advanced.init.js"></script>
+    <script src="{{ asset('assets/js/pages/form-advanced.init.js')}}"></script>
 
     <!-- Required datatable js -->
-    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <!-- Buttons examples -->
-    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="assets/libs/jszip/jszip.min.js"></script>
-    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/jszip/jszip.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
 
     <!-- Responsive examples -->
-    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
     <!-- Datatable init js -->
-    <script src="assets/js/pages/datatables.init.js"></script>
+    <script src="{{ asset('assets/js/pages/datatables.init.js')}}"></script>
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> --}}
 
-    <script src="assets/js/app.js"></script>
+    <script src="{{ asset('assets/js/app.js')}}"></script>
+    
 
-
-
+  
 </body>
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Nov 2021 10:16:57 GMT -->
 

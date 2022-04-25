@@ -64,7 +64,7 @@
                     <div class="col-12">
                     <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">List of Letters</h4>
+                        <h4 class="card-title mb-4">List of Staff Type</h4>
                         <div class="table-responsive">
                             <table class="table align-middle table-nowrap mb-0">
                                 <tbody>
@@ -108,11 +108,11 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Skote.
+                            </script> © ShahCorporation.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
+                                Design & Develop by Teqholic
                             </div>
                         </div>
                     </div>
