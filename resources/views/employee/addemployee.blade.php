@@ -504,7 +504,7 @@
                     <label for="basicpill-firstname-input">Supervisor </label>
                     <select  name="SupervisorID" id="SupervisorID" class="form-select">
 
-                                     <option value="">---Select---</option>
+                                     <option >---Select---</option>
                                                <option value="1" >Ali</option>
                                                <option value="2" >Hamza</option>
                                                <option value="3" >Usama</option>
@@ -546,52 +546,7 @@
 
             </div>
 
-            {{-- <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Start Date <span
-                                                    class="text-danger">*</span></label>
-
-                                            <input type="date" name="StartDate" id="input-date1" class="form-control input-mask"
-                                                data-inputmask="'alias': 'datetime'"
-                                                data-inputmask-inputformat="dd/mm/yyyy" value="{{ old('StartDate') }}"
-            im-insert="false" required="">
-            <span class="text-muted">e.g "dd/mm/yyyy"</span>
-        </div>
-
-
-
-
-    </div> --}}
-
-    {{-- <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Salary <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="Salary"
-                                                value="{{ old('Salary') }} " required="">
-</div>
-
-
-</div> --}}
-
-{{-- <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Salary Comission (If Any)</label>
-                                            <input type="text" class="form-control" name="ExtraComission"
-                                                value="{{ old('Salary') }} ">
-</div>
-
-
-</div> --}}
-
-
-{{-- <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="basicpill-firstname-input">Salary Remarks </label>
-                                            <input type="text" class="form-control" name="SalaryRemarks"
-                                                value="{{ old('SalaryRemarks') }} ">
-</div>
-</div> --}}
+         
 <div class="col-md-4">
     <div class="mb-3">
         <label for="basicpill-firstname-input">Password </label>
