@@ -94,6 +94,8 @@ Route::post('/letter',[WorkController::class,'add_letter'])->name('letter');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::view('/customer', 'customer')->name('customer');
 
+
+//EmployeeSide
 Route::get('/Report',[WorkController::class,'report']);
 Route::post('/Report',[WorkController::class,'add_report'])->name('Report');
 Route::get('/edit_report/{id}',[WorkController::class,'edit_report']);
@@ -102,6 +104,24 @@ Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
 // employ section
 Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
 Route::get('employeeprofile/{id}',[WorkController::class,'employeeprofile']);
+//Employee Documents
+Route::get('/employeedocuments',[EmployeeController::class,'EmployeeDocuments'])->name('employeedocuments');
+Route::post('employeedocumentsupload',[EmployeeController::class,'EmployeeDocumentsUpload'])->name('EmployeeDocumentUpload');
+Route::get('/delete_emp_documents/{id}',[EmployeeController::class,'Deletedocuments']);
+
+
+//Employeeleave
+
+Route::get('/employeeleave',[EmployeeController::class,'Employeeleave'])->name('employeeleave');
+Route::post('/employeeleavesave',[EmployeeController::class,'EmployeeLeaveSave'])->name('empLeaveSave');
+Route::get('/empleaveedit/{id}',[EmployeeController::class,'EmployeeLeaveEdit']);
+Route::post('/employeeleaveupdate',[EmployeeController::class,'EmployeeLeaveUpdate'])->name('empLeaveUpdate');
+Route::get('/delete_emp_leave/{id}',[EmployeeController::class,'Deleteleave']);
+
+//E,ployee loan
+
+Route::get('/employeeloan',[EmployeeController::class,'Employeeloan'])->name('Employeeloan');
+Route::post('/employeeloansave',[EmployeeController::class,'Employeeloansave'])->name('EmployeeloanSave');
 
 Route::get('/blank',[WorkController::class,'blank_page']);
 
