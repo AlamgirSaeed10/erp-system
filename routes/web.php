@@ -17,6 +17,7 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //departments
 Route::get('/departments',[EmployeeController::class,'show_departments'])->name('departments');
 Route::get('/deletedepartment/{DepartmentID}',[EmployeeController::class,'deletedepartment']);
@@ -103,5 +104,21 @@ Route::get('/delete_report/{id}',[WorkController::class,'destroy_report']);
 Route::view('/employ_dashboard', 'employe_section/dashboard')->name('employ_dashboard');
 Route::get('employeeprofile/{id}',[WorkController::class,'employeeprofile']);
 
-Route::get('/blank',[WorkController::class,'blank_page']);
+Route::get('/Emp_letter',[WorkController::class,'blank_page']);
 
+Route::get('/email', [App\Http\Controllers\EmailController::class, 'create']);
+Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
+
+Route::get('IssueLetter',[WorkController::class,'IssueLetter']);
+Route::get('IssueLetter',[WorkController::class,'letter_issue_preview']);
+Route::post('letter_issue_preview',[WorkController::class,'letter_issue_preview'])->name('letter_issue_preview');
+Route::post('letter_issue_save',[WorkController::class,'letter_issue_save'])->name('letter_issue_save');
+Route::get('/delete_issue_letter/{id}',[WorkController::class,'destroy_issue_letter']);
+Route::get('/edit_letter_issue/{id}',[WorkController::class,'edit_letter_issue']);
+Route::post('updateletterissue/{id}',[WorkController::class,'update_letter_issue']);
+Route::get('/issue_letter_print/{id}',[WorkController::class,'issue_letter_print']);
+
+Route::get('EmployeeAttendance',[WorkController::class,'EmployeeAttendances']);
+
+Route::get('employe_att',[WorkController::class,'emplo_att']);
+Route::post('employe_att',[WorkController::class,'add_emplo'])->name('employe_att');

@@ -1,8 +1,5 @@
-
-
-@extends('layout.main')
-
-@section('title', 'Profile')
+@extends('employe_section.layout.employeemain')
+@section('title', 'Employee Letter')
 @section('content')
 
 <div class="main-content">
@@ -89,7 +86,7 @@
 
           <div class="row">
             <div class="col-lg-12">
-              <div class="card ">
+              <div class="card">
                 <div class="card-body card-body border-primary border-top border-1 rounded-top">
                   <h4 class="card-title ">Issued Letter</h4>
                   <p class="card-title-desc"> </p>
@@ -97,24 +94,28 @@
                     <thead class="table-light">
                       <tr>
                         <th class="col-1" class="align-middle">#</th>
-                        <th class="col-9">Title</th>
+                        <th class="col-6">Title</th>
                         <th class="col-2">Date</th>
-                        <th class="col-1">Action</th>
+                        <th class="col-2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $i = 1; ?>
+                      @foreach ($issue_letter as $value)
                       <tr>
-                        <td>bvc</td>
-                        <td>vcbvcb</td>
-                        <td>vbvcbvb</td>
+                        <td>{{$i}}.</td>
+                        <td>{{$value->Title}}</td>
+                        <td>{{$value->eDate}}</td>
                         <td>
                           <div class="d-flex gap-3">
-                            <a href="" class="text-success"><i class="mdi mdi-pencil font-size-15"></i></a>
-                            <a href="" class="text-secondary"><i class="mdi mdi-printer font-size-15"></i></a>
-                            <a href="#" class="text-danger"><i class="mdi mdi-delete font-size-15"></i></a>
+                            <a href="edit_letter_issue/{{$value->IssueLetterID}}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                            <a href="issue_letter_print/{{$value->IssueLetterID}}" class="text-secondary"><i class="mdi mdi-printer font-size-18"></i></a>
+                            <a href="#" onclick="delete_confirm2('delete_issue_letter','{{$value->IssueLetterID }}')" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
                           </div>
                         </td>
                       </tr>
+                      <?php $i++; ?>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -124,6 +125,38 @@
         </div>
         @include('template.emp_sidebar')
       </div>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Are you sure to delete this information ?</p>
+                    <p class="text-center">
+
+
+
+                        <a href="#" class="btn btn-danger " id="delete_link">Delete</a>
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </div>
   </div>
+  <script type="text/javascript">
+    function delete_confirm2(url, IssueLetterID ) {
+        console.log(IssueLetterID );
+        url = '{{URL::TO('/')}}' + /delete_issue_letter/ + IssueLetterID ;
+        jQuery('#staticBackdrop').modal('show', {
+            backdrop: 'static'
+        });
+        document.getElementById('delete_link').setAttribute('href', url);
+    }
+</script>
   @endsection
