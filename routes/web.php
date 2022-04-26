@@ -121,7 +121,7 @@ Route::get('/empleaveedit/{id}',[EmployeeController::class,'EmployeeLeaveEdit'])
 Route::post('/employeeleaveupdate',[EmployeeController::class,'EmployeeLeaveUpdate'])->name('empLeaveUpdate');
 Route::get('/delete_emp_leave/{id}',[EmployeeController::class,'Deleteleave']);
 
-//E,ployee loan
+//Emoployee loan
 
 Route::get('/employeeloan',[EmployeeController::class,'Employeeloan'])->name('Employeeloan');
 Route::post('/employeeloansave',[EmployeeController::class,'Employeeloansave'])->name('EmployeeloanSave');
